@@ -1,3 +1,58 @@
+Some Screenshots of the project
+1)-SPLASH SCREEN
+
+
+![Screenshot 2023-07-21 at 5 04 58 PM](https://github.com/gvishal14/Mentor_Mentee_APP2/assets/130955657/88b499b8-3200-4c0b-b561-d8a0474c57be)
+
+
+2)- INTRO PAGES
+
+
+![Screenshot 2023-07-21 at 5 06 09 PM](https://github.com/gvishal14/Mentor_Mentee_APP2/assets/130955657/77f80c65-4663-4024-8e3e-b0958fabbf37)
+
+![Screenshot 2023-07-21 at 5 06 43 PM](https://github.com/gvishal14/Mentor_Mentee_APP2/assets/130955657/2ef9e12c-658f-425e-872a-11bfd631407c)
+
+![Screenshot 2023-07-21 at 5 07 19 PM](https://github.com/gvishal14/Mentor_Mentee_APP2/assets/130955657/8a636a8a-4567-448a-88f3-2aceecb2a5ed)
+
+
+
+3)- LOGIN PAGE
+
+
+![Screenshot 2023-07-21 at 5 07 52 PM](https://github.com/gvishal14/Mentor_Mentee_APP2/assets/130955657/87ff7ee0-25da-4e7f-85bc-e57f69367e8b)
+
+
+4)- BEFORE LOGIN YOU NEED TO SIGNUP FOR 
+
+MENTOR OR MENTEE
+
+
+![Screenshot 2023-07-21 at 5 09 35 PM](https://github.com/gvishal14/Mentor_Mentee_APP2/assets/130955657/fd73c3b9-f81d-4331-97cc-6f2fd4b92f3d)
+
+![Screenshot 2023-07-21 at 5 10 26 PM](https://github.com/gvishal14/Mentor_Mentee_APP2/assets/130955657/efcf8456-1c8d-480c-9664-568e5a388786)
+
+
+
+5)- AFTER SIGNUP YOU NEED TO LOGIN WITH SAME EMAIL ID YOU GIVEN IN THE SIGNUP PAGE
+
+
+
+![Screenshot 2023-07-21 at 5 10 26 PM](https://github.com/gvishal14/Mentor_Mentee_APP2/assets/130955657/9d95d8ec-8b73-437e-b820-f8d67d9be048)
+
+
+
+6)- AFTER LOGIN YOU WILL COME TO THE DASHBOARD WHERE YOU SEE INFORMATION REGARDING CURRENT MENTEES, TOTAL NO. OF SESSIONS, CURRENT SESSIONS etc.....
+
+
+
+![Screenshot 2023-07-21 at 5 14 13 PM](https://github.com/gvishal14/Mentor_Mentee_APP2/assets/130955657/7e3c850d-e76b-4553-9674-b2b3f79a5204)
+
+
+![Screenshot 2023-07-21 at 5 14 36 PM](https://github.com/gvishal14/Mentor_Mentee_APP2/assets/130955657/faae608e-e393-4b78-9c53-efdc55a3900f)
+
+
+
+
 This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
 # Getting Started
