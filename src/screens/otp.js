@@ -6,11 +6,21 @@ import {
     TextInput,
     TouchableOpacity,
   } from 'react-native';
-  import React from 'react';
+  import React, { useState } from 'react';
   import OTPInputView from '@twotalltotems/react-native-otp-input'
 
   
-  const otp = ({navigation}) => {
+  const otp = ({route, navigation}) => {
+
+    const [otp, setOTP] = useState();
+
+    // const { otpData } = route.params;
+    // useEffect(() => {
+    //   console.log('Received OTP Data:', otpData);
+    // }, []);
+  
+
+
       // const handleNext4 = ()=>{
       //   navigation.navigate('Signup')
       // }
@@ -27,35 +37,7 @@ import {
         <Text style={styles.text}>A 5 digit code has been sent to </Text>
         <Text style={styles.text}>user123@mail.com</Text>
   
-        {/* <View>
-          <View style={styles.inputContainer}>
-            <TextInput style={styles.input} placeholder="" />
-          </View>
-        </View> */}
-  
-        {/* <View>
-          <View style={styles.inputContainer2}>
-            <TextInput style={styles.input} placeholder="" />
-          </View>
-        </View> */}
-
-
-            {/* <View style={styles.main}>
-                <OTPTextInput
-                    ref={otpInput}
-                    handleTextChange={(text) => {
-                        if (text.length === 5) {
-                            console.log('OTP:', text);
-                        }
-                    }}
-                    inputCount={5}
-                    keyboardType="numeric"
-                    tintColor="black"
-                    inputCellLength={1}
-                    containerStyle={styles.otpContainer}
-                    textInputStyle={styles.otpInput}
-                />
-            </View> */}
+      
            
            <OTPInputView
         style={{width: '80%', height: 150,marginHorizontal:25}}

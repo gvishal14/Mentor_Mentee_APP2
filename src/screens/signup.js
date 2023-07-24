@@ -7,10 +7,14 @@ import {
   ScrollView,
   TouchableOpacity,
   TextInput,
+  Alert,
+  ActivityIndicator,
 } from 'react-native';
 import SplashScreen from 'react-native-splash-screen';
 import {} from '@react-native-segmented-control/segmented-control';
 import SegmentedControlTab from 'react-native-segmented-control-tab';
+import axios from 'axios'
+import { Registration } from '../API';
 
 // const signup = ({navigation}) => {
   
@@ -21,13 +25,26 @@ import SegmentedControlTab from 'react-native-segmented-control-tab';
 
 
   const signup = ({navigation}) => {
+
+    const [refCode,setRefCode]= useState('')
+    const [email,setEmail]= useState('')
+    const [firstName,setFirstname]= useState('')
+    const [lastName, setLastname]= useState('')
+    const [mobileNo, setMobileno]= useState('')
+    const [password, setPassword]= useState('')
+    // const [country_code, setCountryCode] = useState('')
+
+    const [loading, setLoading] = useState(false)
+    const [error, setError] = useState('')
+
+    
     
     const handleNext6 = () => {
         navigation.navigate('Login');
       };
-    const handleContinue = () => {
-      navigation.navigate('otp');
-    }
+    // const handleContinue = () => {
+    //   navigation.navigate('otp');
+    // }
 
         useEffect(() => {
     SplashScreen.hide();
@@ -36,13 +53,76 @@ import SegmentedControlTab from 'react-native-segmented-control-tab';
     
     const [customStyleIndex, setCustomStyleIndex] = useState(0);
 
+   
+
     const handleCustomIndexSelect = (index) => {
         // Tab selection for custom Tab Selection
         setCustomStyleIndex(index);
       };
 
+    const role = customStyleIndex === 0 ? 'Mentor' : 'Mentee';
+      
+  //     const submit = () => {
+  //     const apiUrl = 'https://mean.stagingsdei.com:452/mentor/register'
+  //     const formData = new FormData();
+  //       formData.append('refferalCode', refCode);
+  //       formData.append('email',email);
+  //       formData.append('firstName',firstName);
+  //       formData.append('lastName',lastName);
+  //       formData.append('mobileno',mobileNo);
+  //       formData.append('password',password);
+
+  //       console.log('formData',refCode,email,firstName,lastName,mobileNo,password)
+
+  //     axios.post(apiUrl, formData, {
+  //       headers: {
+  //         'Content-Type' : 'multipart/form-data',
+  //       },
+  //     })
+  //   .then((response) => {
+  //     setLoading(false);
+  //     console.log('response',response)
+  //     // Handle successful signup response, e.g., navigate to the next screen
+  //     // navigation.navigate('otp');
+  //   })
+  //   .catch((error) => {
+  //     setLoading(false);
+  //     setError('Error occurred during signup. Please try again.');
+  //     console.error('API Error:',error);
+  //   });
+  // }
+
+  const submit = () => {
+    setLoading(true)
+    let formData = new FormData();
+        formData.append('refferalCode', refCode);
+        formData.append('email',email);
+        formData.append('firstName',firstName);
+        formData.append('lastName',lastName);
+        formData.append('phone',mobileNo);
+        formData.append('password',password);
+        formData.append('role', 1);
+        formData.append('country_code','+91')
+
+    Registration(formData).then(response => {  
+      setLoading(false)
+      console.log('formData', formData)
+      console.log('response', response)
+      if(response.status == 'Success'){
+        navigation.navigate('otp');
+      }
+      else{
+        Alert.alert("Regsitration Failed Please Try again later")
+
+      }
+    }).finally(e => { setLoading(false) })
+
+    
+}
+
   return (
     <ScrollView>
+      {loading && <ActivityIndicator size={'large'} />}
       <View style={styles.container}>
         { customStyleIndex == 0 ? (<Image
           source={require('../assets/signup/Group103.png')}
@@ -59,10 +139,7 @@ import SegmentedControlTab from 'react-native-segmented-control-tab';
           Sign up
         </Text>
         
-        {/* <Image
-          source={require('../assets/signup/Signup.png')}
-          style={styles.imageB}
-        /> */}
+      
         <Text style={styles.text}>Hello, I guess you are new around here.</Text>
       </View>
 
@@ -91,35 +168,37 @@ import SegmentedControlTab from 'react-native-segmented-control-tab';
 
 
       <View style={styles.inputContainer}>
-        <TextInput style={styles.input} placeholder="Referral Code" />
+        <TextInput style={styles.input} placeholder="Referral Code" 
+        onChangeText={text => setRefCode(text)}
+        value={refCode}/>
         <Image
           source={require('../assets/signup/layer1.png')}
           style={styles.icon}
         />
       </View>
       <View style={styles.inputContainer}>
-        <TextInput style={styles.inputWithIcon} placeholder="Email ID" />
+        <TextInput style={styles.inputWithIcon} placeholder="Email ID" onChangeText={text => setEmail(text)} value={email} />
         <Image
           source={require('../assets/signup/Group3.png')}
           style={styles.icon}
         />
       </View>
       <View style={styles.inputContainer}>
-        <TextInput style={styles.inputWithIcon} placeholder="First Name" />
+        <TextInput style={styles.inputWithIcon} placeholder="First Name" onChangeText={text => setFirstname(text)} value={firstName} />
         <Image
           source={require('../assets/signup/Group3.png')}
           style={styles.icon}
         />
       </View>
       <View style={styles.inputContainer}>
-        <TextInput style={styles.inputWithIcon} placeholder="Last Name" />
+        <TextInput style={styles.inputWithIcon} placeholder="Last Name" onChangeText={text => setLastname(text)} value={lastName} />
         <Image
           source={require('../assets/signup/Group3.png')}
           style={styles.icon}
         />
       </View>
       <View style={styles.inputContainer}>
-        <TextInput style={styles.inputWithIcon} placeholder="Mobile Number" />
+        <TextInput style={styles.inputWithIcon} placeholder="Mobile Number" onChangeText={text => setMobileno(text)} value={mobileNo} />
         <Image
           source={require('../assets/signup/Group102.png')}
           style={styles.icon}
@@ -130,6 +209,8 @@ import SegmentedControlTab from 'react-native-segmented-control-tab';
           style={styles.inputWithIcon}
           placeholder="Password"
           secureTextEntry
+          onChangeText={text => setPassword(text)}
+          value={password}
         />
         <Image
           source={require('../assets/signup/image.png')}
@@ -143,7 +224,7 @@ import SegmentedControlTab from 'react-native-segmented-control-tab';
         />
       </View>
       <View>
-        <TouchableOpacity style={styles.buttonn} onPress={handleContinue}>
+        <TouchableOpacity style={styles.buttonn} onPress={()=> submit()}>
           <Text style={styles.buttonText}>Continue</Text>
         </TouchableOpacity>
         <View>
