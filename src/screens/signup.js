@@ -1,3 +1,4 @@
+
 import React, {useEffect, useState} from 'react';
 import {
   StyleSheet,
@@ -24,7 +25,7 @@ import { Registration } from '../API';
   
 
 
-  const signup = ({navigation}) => {
+  const signup = ({navigation,route}) => {
 
     const [refCode,setRefCode]= useState('')
     const [email,setEmail]= useState('')
@@ -32,6 +33,7 @@ import { Registration } from '../API';
     const [lastName, setLastname]= useState('')
     const [mobileNo, setMobileno]= useState('')
     const [password, setPassword]= useState('')
+    const [data, setData]= useState('')
     // const [country_code, setCountryCode] = useState('')
 
     const [loading, setLoading] = useState(false)
@@ -105,11 +107,12 @@ import { Registration } from '../API';
         formData.append('country_code','+91')
 
     Registration(formData).then(response => {  
-      setLoading(false)
-      console.log('formData', formData)
-      console.log('response', response)
+     
       if(response.status == 'Success'){
-        navigation.navigate('otp');
+        // setData(response.data.token)
+        console.log('formData',formData)
+        console.log('token1--->', response.data.token)
+        navigation.navigate('otp',{token:response.data.token,email:email,password:password})
       }
       else{
         Alert.alert("Regsitration Failed Please Try again later")
@@ -136,7 +139,7 @@ import { Registration } from '../API';
         )}
 
         <Text style={{fontSize:36,marginRight:220,color:'#313131'}}>
-          Sign up
+          Sign up
         </Text>
         
       

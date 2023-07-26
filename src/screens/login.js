@@ -1,13 +1,52 @@
 import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity } from 'react-native'
-import React from 'react'
+import React, { useState } from 'react'
+import { Login } from '../API';
 
-const login = ({navigation}) => {
+const login = ({navigation, route}) => {
+    
+
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+
+
   const handleNext4 = ()=>{
     navigation.navigate('Signup')
   }
-  const handleNext22 = ()=>{
-    navigation.navigate('dashboard')
+//   const handleNext22 = ()=>{
+//     navigation.navigate('dashboard')
+
+
+const [loading, setLoading] = useState(false)
+const [error, setError] = useState('')
+
+
+
+
+
+const onClick = () => {
+    setLoading(true)
+    let data={
+        "email":email,
+        "password":password,
+    }
+
+        Login(data).then(response => {  
+     
+            if(response.status == 'Success'){
+              // setData(response.data.token)
+              console.log('LoginData',data)
+              navigation.navigate('dashboard')
+              
+            }
+            else{
+              Alert.alert("Login Failed")
+      
+            }
+          }).finally(e => { setLoading(false) })
+
+    
   }
+
     return (
         <View>
             <Image source={require('../assets/login/Group93.png')} style={styles.image} />
@@ -17,8 +56,10 @@ const login = ({navigation}) => {
             <View style={styles.inputContainer}>
                 <TextInput
                     style={styles.input}
-                    placeholder="Email Id"
-                />
+                    placeholder="Email Id" 
+                    onChangeText={text => setEmail(text)} value={email} 
+                    />
+                
                 <Image source={require('../assets/login/Vector7.png')} style={styles.icon} />
             </View>
 
@@ -26,7 +67,8 @@ const login = ({navigation}) => {
                 <TextInput
                     style={styles.input}
                     placeholder="Password"
-                    secureTextEntry={true}
+                    secureTextEntry={true} 
+                    onChangeText={text => setPassword(text)} value={password}
                 />
                 <Image source={require('../assets/login/Group2.png')} style={styles.icon} />
             </View>
@@ -42,7 +84,7 @@ const login = ({navigation}) => {
                 </TouchableOpacity>
             </View>
 
-            <TouchableOpacity style={styles.button}onPress={handleNext22}>
+            <TouchableOpacity style={styles.button}onPress={onClick}>
                 <Text style={styles.buttonText}>Log in</Text>
             </TouchableOpacity>
 
