@@ -1,11 +1,49 @@
-import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity } from 'react-native'
-import React from 'react'
+import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity, ScrollView, Alert } from 'react-native'
+import React, { useState } from 'react'
+import { Forget } from '../API'
 
-const forget = ({navigation}) => {
-  const handleNext7 = ()=>{
-    navigation.navigate('otp')
+const forget = ({navigation,route}) => {
+
+    const [email, setEmail] = useState('')
+
+    const [loading, setLoading] = useState(false)
+    const [error, setError] = useState('')
+
+
+
+const onForget = () => {
+    setLoading(true)
+    let data={
+        "email":email,
+        
+    }
+
+        Forget(email).then(response => {  
+     
+            if(response.status == 'Success'){
+              // setData(response.data.token)
+              console.log('email',email);
+              navigation.navigate('otp');
+              
+            }
+            else{
+              Alert.alert("OTP DOES NOT MATCH")
+      
+            }
+          })  .catch(error => {
+            console.error('Error occurred during API call:', error);
+            Alert.alert("An error occurred while processing your request.");
+          })
+          .finally(e => { setLoading(false) })
+
+    
   }
+
+//   const handleNext7 = ()=>{
+//     navigation.navigate('otp')
+//   }
     return (
+        <ScrollView>
         <View>
             <Image source={require('../assets/foget/Group104.png')} style={styles.image} />
             <Image source={require('../assets/foget/Forgot.png')} style={styles.image} /> 
@@ -16,6 +54,7 @@ const forget = ({navigation}) => {
                 <TextInput
                     style={styles.input}
                     placeholder="Email Id"
+                    onChangeText={text => setEmail(text)} value={email}
                 />
                 <Image source={require('../assets/login/Vector7.png')} style={styles.icon} />
             </View>
@@ -23,12 +62,13 @@ const forget = ({navigation}) => {
 
             
 
-            <TouchableOpacity style={styles.button} onPress={handleNext7}>
+            <TouchableOpacity style={styles.button} onPress={onForget}>
                 <Text style={styles.buttonText}>Send</Text>
             </TouchableOpacity>
 
             
         </View>
+        </ScrollView>
     )
 }
 

@@ -34,6 +34,7 @@ import { Registration } from '../API';
     const [mobileNo, setMobileno]= useState('')
     const [password, setPassword]= useState('')
     const [data, setData]= useState('')
+    
     // const [country_code, setCountryCode] = useState('')
 
     const [loading, setLoading] = useState(false)
@@ -107,15 +108,18 @@ import { Registration } from '../API';
         formData.append('country_code','+91')
 
     Registration(formData).then(response => {  
+      console.log('formData',formData)
+      console.log('response',response)
      
       if(response.status == 'Success'){
         // setData(response.data.token)
-        console.log('formData',formData)
+       
+
         console.log('token1--->', response.data.token)
         navigation.navigate('otp',{token:response.data.token,email:email,password:password})
       }
       else{
-        Alert.alert("Regsitration Failed Please Try again later")
+        Alert.alert("Registration Failed Please Try again later")
 
       }
     }).finally(e => { setLoading(false) })

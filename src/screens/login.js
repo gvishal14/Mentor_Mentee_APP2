@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity } from 'react-native'
+import { StyleSheet, Text, View, Image, TextInput,ScrollView, TouchableOpacity } from 'react-native'
 import React, { useState } from 'react'
 import { Login } from '../API';
 
@@ -7,6 +7,7 @@ const login = ({navigation, route}) => {
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    
 
 
   const handleNext4 = ()=>{
@@ -28,6 +29,7 @@ const onClick = () => {
     let data={
         "email":email,
         "password":password,
+        
     }
 
         Login(data).then(response => {  
@@ -48,6 +50,7 @@ const onClick = () => {
   }
 
     return (
+        <ScrollView>
         <View>
             <Image source={require('../assets/login/Group93.png')} style={styles.image} />
             <Image source={require('../assets/login/LetLogin.png')} style={styles.image} /> 
@@ -95,6 +98,7 @@ const onClick = () => {
                 </TouchableOpacity>
             </View>
         </View>
+        </ScrollView>
     )
 }
 

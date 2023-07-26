@@ -31,10 +31,21 @@ export const Otp = (data, token) => {
         method: 'POST',
         body: JSON.stringify(data),
         headers: { 
-          Authorization: token,
+        Authorization: token,
         'Content-Type': 'application/json',
        },
     }).then(response => response.json())
         .then(response => response)
         .catch(e => console.log(e, 'error'));
+};
+
+
+export const Forget = (email) => {
+  console.log('URl--->', `${AppUrl.FORGET + email}`)
+  return fetch(`${AppUrl.FORGET + email}`, {
+      method: 'GET',
+      
+  }).then(response => response.json())
+      .then(response => response)
+      .catch(e => console.log(e, 'error'));
 };
