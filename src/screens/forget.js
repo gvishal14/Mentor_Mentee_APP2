@@ -23,7 +23,7 @@ const onForget = () => {
             if(response.status == 'Success'){
               // setData(response.data.token)
               console.log('email',email);
-              navigation.navigate('otp');
+              navigation.navigate('otp',{token:response.data.token,type:'forget'});
               
             }
             else{

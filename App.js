@@ -14,6 +14,7 @@ import otp from './src/screens/otp';
 import reset from './src/screens/reset';
 import dashboard from './src/screens/dashboard';
 import Spash from './src/screens/Spash';
+import Done from './src/screens/done';
 
 const Stack = createNativeStackNavigator();
 const App = () => {
@@ -35,8 +36,9 @@ const App = () => {
         {/* <Stack.Screen name="Signup2" component={signup2} /> */}
         <Stack.Screen name="forget" component={forget} />
         <Stack.Screen name="otp" component={otp} />
-        <Stack.Screen name="reset" component={reset} />
+        <Stack.Screen name="Reset" component={reset} />
         <Stack.Screen name="dashboard" component={dashboard} /> 
+        <Stack.Screen name="alldone" component={Done}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

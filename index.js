@@ -17,6 +17,7 @@ import otp from './src/screens/otp'
 import reset from './src/screens/reset';
 import dashboard from './src/screens/dashboard';
 import SplashScreen from 'react-native-splash-screen';
+import Done from './src/screens/done';
 
 AppRegistry.registerComponent(appName, () => App);
 // AppRegistry.registerComponent(appName, () => login);
@@ -29,6 +30,7 @@ AppRegistry.registerComponent(appName, () => App);
 // AppRegistry.registerComponent(appName, () => otp);
 // AppRegistry.registerComponent(appName, () => reset);
 // AppRegistry.registerComponent(appName, () => dashboard);
+// AppRegistry.registerComponent(appName, () => Done);
 
 
 

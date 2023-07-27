@@ -49,3 +49,16 @@ export const Forget = (email) => {
       .then(response => response)
       .catch(e => console.log(e, 'error'));
 };
+
+export const Reset = (data,token) => {
+  return fetch(AppUrl.RESET, {
+      method: 'POST',
+      body: JSON.stringify(data),
+      headers: { 
+        Authorization: token,
+        'Content-Type': 'application/json',
+      }
+  }).then(response => response.json())
+      .then(response => response)
+      .catch(e => console.log(e, 'error'));
+};

@@ -13,6 +13,11 @@ import React from 'react';
 
 const Intro = ({navigation}) => {
 
+
+  const handleNextAll = () => {
+    navigation.navigate('Login');
+  }
+
   const handleNext = () => {
     navigation.navigate('Intro2');
   };
@@ -67,7 +72,7 @@ const Intro = ({navigation}) => {
           source={require('../assets/intro1/Group90.png')}
           style={{marginTop: 14}}></Image>
         <View style={styles.buttonContainer}>
-          <TouchableOpacity style={styles.skipButton} onPress={handleNext}>
+          <TouchableOpacity style={styles.skipButton} onPress={handleNextAll}>
             <Text>Skip</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.nextButton} onPress={handleNext}>

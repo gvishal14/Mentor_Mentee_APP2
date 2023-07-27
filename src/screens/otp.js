@@ -22,9 +22,15 @@ import axios from 'axios';
 
 
 const otp = ({navigation,route}) => {
+  const type = route.params?.type;
+// let token = route.params?.token
+// let token = type === 'inside' ? route.params?.token:'';
 let token = route.params?.token
+let types = route.params?.type
+
   console.log('token2--->',route.params?.token);
-  const [otp,  setOtp] = useState('');
+  // const [otp,  setOtp] = useState('');
+  const [otp, setOtp] = useState(type === 'inside' ? route.params.email : '');
   
 
   const [loading, setLoading] = useState(false)
@@ -40,31 +46,92 @@ let token = route.params?.token
     // const handleNext4 = ()=>{
     //   navigation.navigate('Signup')
     // }
-  const OtpVerify = () =>{
-    if(!otp){
-      return Alert.alert('Enter OTP')
-    }
-    setLoading(true);
-    let data={
-      "otp":otp,
-      "type":'register'
-  }
+ 
+  //   setLoading(true);
+  //   let data={
+  //     "otp":otp,
+  //     "type":'register'
+  // }
  
 
-  Otp(data,token).then(response => {
-    console.log('formData', data)
-    console.log('response', response)
-    if(response.status=='Success'){
-      navigation.navigate('Login',{token:token,email:route.params.email,password:route.params.password})
-    }else{
-      Alert.alert('Error')
-    }
+  // Otp(data,token).then(response => {
+  //   console.log('formData', data)
+  //   console.log('response', response)
+  //   if(response.status=='Success'){
+  //     navigation.navigate('Login',{token:token,email:route.params.email,password:route.params.password})
+  //   }else{
+  //     Alert.alert('Error')
+  //   }
    
-    // navigation.navigate('Login',{token:token,email:route.params.email,password:route.params.password})
-  }).finally(e => { setLoading(false).catch(err=> console.log('err',err))
-  })
+  //   // navigation.navigate('Login',{token:token,email:route.params.email,password:route.params.password})
+  // }).finally(e => { setLoading(false).catch(err=> console.log('err',err))
+  // })
 
-  }
+  // }
+
+
+  // const verifyOtp = () => {
+    // if (!otp) {
+    //     return Alert.alert('Enter OTP');
+    // }
+    const OtpVerify = () =>{
+      if(!otp){
+        return Alert.alert('Enter OTP')
+      }
+    setLoading(true);
+    console.log('type', type)
+    if(types === 'register'){
+      console.log('yes i m register')
+    const data = {
+        "otp": otp,
+        "type": 'register',
+    }
+
+    Otp(data, token)
+        .then(response => {
+            setLoading(false);
+            console.log('otp', otp);
+            console.log('response', response);
+
+            if (response.status === 'Success') {
+                navigation.navigate('Login',{token:token,email:route.params.email,password:route.params.password, type:'inside'});
+            } else {
+                Alert.alert('Enter a valid OTP.');
+            }
+        })
+        .catch(error => {
+            setLoading(false);
+            console.error('Error', error);
+            Alert.alert('Error occurred during the process.');
+        });
+    }
+    else{
+      console.log('yes i m forget')
+        const data = {
+            otp: otp
+        }
+        console.log(data,'data')
+        Otp(data,token)
+        .then(response => {
+            setLoading(false);
+            // console.log('otp', otp);
+            console.log('response', response);
+            if (response.status === 'Success') {
+              navigation.navigate('Reset',{token:token});
+          } else {
+              Alert.alert('Enter a valid OTP.');
+          }
+        })
+        .catch(error => {
+            setLoading(false);
+            console.error('Error', error);
+            Alert.alert('Error occurred during the process.');
+        });
+    }
+    }
+
+
+
 
   return (
     
@@ -96,6 +163,7 @@ let token = route.params?.token
     </ScrollView>
     
   );
+
 };
 
 export default otp;

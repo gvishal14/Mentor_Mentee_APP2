@@ -116,7 +116,7 @@ import { Registration } from '../API';
        
 
         console.log('token1--->', response.data.token)
-        navigation.navigate('otp',{token:response.data.token,email:email,password:password})
+        navigation.navigate('otp',{token:response.data.token,email:email,password:password,type:'register'})
       }
       else{
         Alert.alert("Registration Failed Please Try again later")
