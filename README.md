@@ -50,6 +50,12 @@ MENTOR OR MENTEE
 
 ![Screenshot 2023-07-21 at 5 14 36 PM](https://github.com/gvishal14/Mentor_Mentee_APP2/assets/130955657/faae608e-e393-4b78-9c53-efdc55a3900f)
 
+7)- Data Stored in AsynStorage of Signup Page
+
+
+![Screenshot 2023-07-28 at 11 14 45 AM](https://github.com/gvishal14/Mentor_Mentee_APP2/assets/130955657/c00bd5d5-6ffe-4b99-8382-1ef3e107e324)
+
+
 
 
 
