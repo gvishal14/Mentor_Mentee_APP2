@@ -16,13 +16,8 @@ import {} from '@react-native-segmented-control/segmented-control';
 import SegmentedControlTab from 'react-native-segmented-control-tab';
 import axios from 'axios'
 import { Registration } from '../API';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
-// const signup = ({navigation}) => {
-  
-//   const handleNext5 = () => {
-//     navigation.navigate('Signup2');
-//   };
-  
 
 
   const signup = ({navigation,route}) => {
@@ -40,30 +35,51 @@ import { Registration } from '../API';
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState('')
 
+    const [customStyleIndex, setCustomStyleIndex] = useState(0);
+
+    const role = customStyleIndex === 0 ? 'Mentor' : 'Mentee';
+
     
     
     const handleNext6 = () => {
         navigation.navigate('Login');
       };
-    // const handleContinue = () => {
-    //   navigation.navigate('otp');
-    // }
+   
 
         useEffect(() => {
     SplashScreen.hide();
+    retrieveEmailFromStorage();
   }, []);
 
-    
-    const [customStyleIndex, setCustomStyleIndex] = useState(0);
+  useEffect(() => {
+    // Check if the email state is not empty
+    if (email) {
+      console.log('Email retrieved from AsyncStorage:', email);
+      // You can also use the email state value for further processing, if needed
+    }
+  }, [email]);
 
-   
 
     const handleCustomIndexSelect = (index) => {
         // Tab selection for custom Tab Selection
         setCustomStyleIndex(index);
       };
 
-    const role = customStyleIndex === 0 ? 'Mentor' : 'Mentee';
+      const retrieveEmailFromStorage = async ()=>{
+        try{
+          const storedEmail = await AsyncStorage.getItem(email);
+
+          if (storedEmail !== null ){
+            setEmail(storedEmail)
+            console.log(email,'email')
+          }
+          
+        }catch (error){
+          console.log('Error retrieving data', error)
+        }
+      }
+
+    
       
   //     const submit = () => {
   //     const apiUrl = 'https://mean.stagingsdei.com:452/mentor/register'
@@ -124,7 +140,7 @@ import { Registration } from '../API';
       }
     }).finally(e => { setLoading(false) })
 
-    
+   
 }
 
   return (
