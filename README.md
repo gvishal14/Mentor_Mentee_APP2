@@ -52,8 +52,9 @@ MENTOR OR MENTEE
 
 7)- Data Stored in AsynStorage of Signup Page
 
+![Screenshot 2023-07-28 at 11 28 45 AM](https://github.com/gvishal14/Mentor_Mentee_APP2/assets/130955657/de4690c8-793b-42da-bf9a-d905b9bff75c)
 
-![Screenshot 2023-07-28 at 11 14 45 AM](https://github.com/gvishal14/Mentor_Mentee_APP2/assets/130955657/c00bd5d5-6ffe-4b99-8382-1ef3e107e324)
+
 
 
 
