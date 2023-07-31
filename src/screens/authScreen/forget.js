@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity, ScrollView, Alert } from 'react-native'
 import React, { useState } from 'react'
-import { Forget } from '../API'
+import { Forget } from '../../API'
 
 const forget = ({navigation,route}) => {
 
@@ -45,8 +45,8 @@ const onForget = () => {
     return (
         <ScrollView>
         <View>
-            <Image source={require('../assets/foget/Group104.png')} style={styles.image} />
-            <Image source={require('../assets/foget/Forgot.png')} style={styles.image} /> 
+            <Image source={require('../../assets/foget/Group104.png')} style={styles.image} />
+            <Image source={require('../../assets/foget/Forgot.png')} style={styles.image} /> 
             <Text style={styles.text}>Don't worry! It happens. </Text>
             <Text style={styles.text}>Please enter the address associated with your account.</Text>
 
@@ -56,7 +56,7 @@ const onForget = () => {
                     placeholder="Email Id"
                     onChangeText={text => setEmail(text)} value={email}
                 />
-                <Image source={require('../assets/login/Vector7.png')} style={styles.icon} />
+                <Image source={require('../../assets/login/Vector7.png')} style={styles.icon} />
             </View>
 
 

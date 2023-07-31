@@ -16,7 +16,7 @@ import React, { useState } from 'react';
 import OTPInputView from '@twotalltotems/react-native-otp-input'
 import OtpInputs from 'react-native-otp-inputs'
 import KeyboardAwareScrollView from 'react-native-keyboard-aware-scroll-view'
-import { Otp } from '../API';
+import { Otp } from '../../API';
 import login from './login';
 import axios from 'axios';
 
@@ -137,11 +137,11 @@ let types = route.params?.type
     
     <ScrollView style={{flex:1}}>
       <Image
-        source={require('../assets/otp/Group105.png')}
+        source={require('../../assets/otp/Group105.png')}
         style={styles.image}
       />
       <Image
-        source={require('../assets/otp/EnterOTP.png')}
+        source={require('../../assets/otp/EnterOTP.png')}
         style={styles.image}
       />
       <Text style={styles.text}>A 5 digit code has been sent to </Text>

@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View, Image, TextInput,ScrollView, TouchableOpacity, Alert } from 'react-native'
 import React, { useState } from 'react'
-import { Reset } from '../API'
+import { Reset } from '../../API'
 
 const reset = ({navigation, route}) => {
 //   const handleNext4 = ()=>{
@@ -62,8 +62,8 @@ const handleSavePassword = () => {
 
         <ScrollView>
         <View>
-            <Image source={require('../assets/reset/Group107.png')} style={styles.image} />
-            <Image source={require('../assets/reset/Reset.png')} style={styles.image} /> 
+            <Image source={require('../../assets/reset/Group107.png')} style={styles.image} />
+            <Image source={require('../../assets/reset/Reset.png')} style={styles.image} /> 
             <Text style={styles.text}>Your new password must be different </Text>
             <Text style={styles.text}>from previous used passwords.</Text>
 
@@ -74,7 +74,7 @@ const handleSavePassword = () => {
                     onChangeText={text => setNewPassword(text)}
                     value={newPassword}/>
                 
-               <Image source={require('../assets/reset/image.png')} style={styles.icon} />
+               <Image source={require('../../assets/reset/image.png')} style={styles.icon} />
             </View>
             <Text style={styles.text1}>Must be at least 8 characters.</Text>
 
@@ -86,7 +86,7 @@ const handleSavePassword = () => {
                     onChangeText={text => setConfirmPassword(text)}
                     value={confirmPassword}
                 />
-                <Image source={require('../assets/login/Group2.png')} style={styles.icon} />
+                <Image source={require('../../assets/login/Group2.png')} style={styles.icon} />
             </View>
             <View>
                 <Text style={styles.text1}>Both passwords must match.</Text>

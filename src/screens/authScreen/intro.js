@@ -27,13 +27,13 @@ const Intro = ({navigation}) => {
       <View style={{position: 'relative'}}>
         <Image
           style={{position: 'absolute', zIndex: -1,width:'100%'}}
-          source={require('../assets/intro1/Vector1.png')}></Image>
+          source={require('../../assets/intro1/Vector1.png')}></Image>
 
         {/* <ImageBackground
         source={require('../assets/intro3/Vector2.png')}
         style={{flex: 1, marginTop: 120,position:'relative'}}> */}
         <Image
-          source={require('../assets/intro1/Group89.png')}
+          source={require('../../assets/intro1/Group89.png')}
           style={{
             alignSelf: 'center',
             flex: 0.6,
@@ -69,7 +69,7 @@ const Intro = ({navigation}) => {
         </View>
 
         <Image
-          source={require('../assets/intro1/Group90.png')}
+          source={require('../../assets/intro1/Group90.png')}
           style={{marginTop: 14}}></Image>
         <View style={styles.buttonContainer}>
           <TouchableOpacity style={styles.skipButton} onPress={handleNextAll}>

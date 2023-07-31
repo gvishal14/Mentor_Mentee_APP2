@@ -33,33 +33,33 @@ const dashboard = () => {
       date:'03-16-2020',
       career_consultation: 'CAREER CONSULTATION', 
       eductaion_consultation:'EDUCATIONAL CONSULTATION',
-      image:require('../assets/dashboard/Calendar.png'),
+      image:require('../../assets/dashboard/Calendar.png'),
     },
     // {
     //   id:2,
     //   session_started: '',
     //   career_consultation: '', 
     //   eductaion_consultation:'',
-    //   image:require('../assets/dashboard/Calendar.png'),
+    //   image:require('../../assets/dashboard/Calendar.png'),
     // }
   ]
   return (
     <ScrollView >
       <View style={styles.container1}>
         <Image
-          source={require('../assets/dashboard/Ellipse7.png')}
+          source={require('../../assets/dashboard/Ellipse7.png')}
           style={styles.image}
         />
         <Text style={{color: '#313131', marginLeft: 10}}>Hello, Cameron</Text>
         <Image
-          source={require('../assets/dashboard/Notification.png')}
+          source={require('../../assets/dashboard/Notification.png')}
           style={styles.image3}
         />
       </View>
 
       <View style={styles.inputContainer}>
         <Image
-          source={require('../assets/dashboard/Search.png')}
+          source={require('../../assets/dashboard/Search.png')}
           style={styles.icon}
         />
         <TextInput style={styles.input} placeholder="Search" />
@@ -78,7 +78,7 @@ const dashboard = () => {
             width: 70,
           }}>
           <Image
-            source={require('../assets/dashboard/Group123.png')}
+            source={require('../../assets/dashboard/Group123.png')}
             style={{}}
           />
         </View>
@@ -122,7 +122,7 @@ const dashboard = () => {
                 alignItems: 'center',
               }}>
               <Image
-                source={require('../assets/dashboard/Arrow.png')}
+                source={require('../../assets/dashboard/Arrow.png')}
                 style={{}}
               />
               <Text style={{color: '#313131', fontSize: 15}}>7.52%</Text>
@@ -167,7 +167,7 @@ const dashboard = () => {
         </View>
         <View style={{marginLeft: 2, marginBottom: 1}}>
           <Image
-            source={require('../assets/dashboard/CurrentMentees.png')}
+            source={require('../../assets/dashboard/CurrentMentees.png')}
             style={{height: 85.02, width: 116, marginRight: 10, marginLeft: 20}}
           />
         </View>
@@ -350,7 +350,7 @@ const dashboard = () => {
             
           }}>
           <Image
-            source={require('../assets/dashboard/Maskgroup.png')}
+            source={require('../../assets/dashboard/Maskgroup.png')}
             style={styles.image2}
           />
           <View>
@@ -386,7 +386,7 @@ const dashboard = () => {
         </View>
         <View style={{backgroundColor: '#E7F7FE', width: 90, borderRadius: 10}}>
           <Image
-            source={require('../assets/dashboard/Group482722.png')}
+            source={require('../../assets/dashboard/Group482722.png')}
             style={styles.image1}
           />
           <View>
@@ -417,7 +417,7 @@ const dashboard = () => {
         <View style={{flexDirection:'column'}}>
         <TouchableOpacity>
           <Image
-            source={require('../assets/dashboard/Home.png')}
+            source={require('../../assets/dashboard/Home.png')}
             
           />
         </TouchableOpacity>
@@ -426,7 +426,7 @@ const dashboard = () => {
         <View style={{flexDirection:'column'}}>
         <TouchableOpacity>
           <Image
-            source={require('../assets/dashboard/2nd.png')}
+            source={require('../../assets/dashboard/2nd.png')}
           />
         </TouchableOpacity>
         </View>
@@ -434,7 +434,7 @@ const dashboard = () => {
         <View style={{flexDirection:'column'}}>
         <TouchableOpacity>
           <Image
-            source={require('../assets/dashboard/3rd.png')}
+            source={require('../../assets/dashboard/3rd.png')}
           />
         </TouchableOpacity>
         </View>
@@ -442,7 +442,7 @@ const dashboard = () => {
         <View style={{flexDirection:'column'}}>
         <TouchableOpacity>
           <Image
-            source={require('../assets/dashboard/Chat.png')}
+            source={require('../../assets/dashboard/Chat.png')}
           />
         </TouchableOpacity>
         </View>

@@ -15,10 +15,10 @@ const Done = ({ navigation, route}) => {
   return (
     <ScrollView>
     <View>
-      <Image source={require('../assets/done/ADN.png')} style={styles.image1} />
+      <Image source={require('../../assets/done/ADN.png')} style={styles.image1} />
       <Text style={styles.text1}>It’s time for you to explore everything</Text>
       <View>
-        <Image source={require('../assets/done/Group111.png')} style={styles.image2} />
+        <Image source={require('../../assets/done/Group111.png')} style={styles.image2} />
       </View>
       <View style={styles.buttonContainer}>
         <TouchableOpacity style={styles.button} onPress={handleNext}>

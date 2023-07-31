@@ -15,9 +15,10 @@ import SplashScreen from 'react-native-splash-screen';
 import {} from '@react-native-segmented-control/segmented-control';
 import SegmentedControlTab from 'react-native-segmented-control-tab';
 import axios from 'axios'
-import { Registration } from '../API';
+import { Registration } from '../../API';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-
+import { useDispatch } from 'react-redux';
+import { setUser } from '../../Redux/userReducer';
 
 
   const signup = ({navigation,route}) => {
@@ -79,6 +80,9 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
         }
       }
 
+      // const dispatch = useDispatch();
+
+
     
       
   //     const submit = () => {
@@ -128,6 +132,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
       console.log('response',response)
      
       if(response.status == 'Success'){
+        AsyncStorage.setItem('email',email)
         // setData(response.data.token)
        
 
@@ -139,7 +144,8 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
       }
     }).finally(e => { setLoading(false) })
-
+    //  dispatch(setUser({ refCode, email, firstName, lastName, mobileNo, password, role }));
+    
    
 }
 
@@ -148,12 +154,12 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
       {loading && <ActivityIndicator size={'large'} />}
       <View style={styles.container}>
         { customStyleIndex == 0 ? (<Image
-          source={require('../assets/signup/Group103.png')}
+          source={require('../../assets/signup/Group103.png')}
           style={styles.imageA}
         />
         ):(
           <Image
-          source={require('../assets/signup2/Group2.png')}
+          source={require('../../assets/signup2/Group2.png')}
           style={styles.imageA}
         />
         )}
@@ -195,35 +201,35 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
         onChangeText={text => setRefCode(text)}
         value={refCode}/>
         <Image
-          source={require('../assets/signup/layer1.png')}
+          source={require('../../assets/signup/layer1.png')}
           style={styles.icon}
         />
       </View>
       <View style={styles.inputContainer}>
         <TextInput style={styles.inputWithIcon} placeholder="Email ID" onChangeText={text => setEmail(text)} value={email} />
         <Image
-          source={require('../assets/signup/Group3.png')}
+          source={require('../../assets/signup/Group3.png')}
           style={styles.icon}
         />
       </View>
       <View style={styles.inputContainer}>
         <TextInput style={styles.inputWithIcon} placeholder="First Name" onChangeText={text => setFirstname(text)} value={firstName} />
         <Image
-          source={require('../assets/signup/Group3.png')}
+          source={require('../../assets/signup/Group3.png')}
           style={styles.icon}
         />
       </View>
       <View style={styles.inputContainer}>
         <TextInput style={styles.inputWithIcon} placeholder="Last Name" onChangeText={text => setLastname(text)} value={lastName} />
         <Image
-          source={require('../assets/signup/Group3.png')}
+          source={require('../../assets/signup/Group3.png')}
           style={styles.icon}
         />
       </View>
       <View style={styles.inputContainer}>
         <TextInput style={styles.inputWithIcon} placeholder="Mobile Number" onChangeText={text => setMobileno(text)} value={mobileNo} />
         <Image
-          source={require('../assets/signup/Group102.png')}
+          source={require('../../assets/signup/Group102.png')}
           style={styles.icon}
         />
       </View>
@@ -236,13 +242,13 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
           value={password}
         />
         <Image
-          source={require('../assets/signup/image.png')}
+          source={require('../../assets/signup/image.png')}
           style={styles.icon}
         />
       </View>
       <View>
         <Image
-          source={require('../assets/signup/bysingup.png')}
+          source={require('../../assets/signup/bysingup.png')}
           style={{marginLeft: 20}}
         />
       </View>

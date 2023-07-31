@@ -1,20 +1,13 @@
 import {StyleSheet, Text, View} from 'react-native';
 import React, {useEffect} from 'react';
 import SplashScreen from 'react-native-splash-screen';
-import Intro from './src/screens/intro';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import Intro2 from './src/screens/intro2';
-import Intro3 from './src/screens/intro3';
-import login from './src/screens/login';
-import signup from './src/screens/signup';
-import signup2 from './src/screens/signup2';
-import forget from './src/screens/forget';
-import otp from './src/screens/otp';
-import reset from './src/screens/reset';
-import dashboard from './src/screens/dashboard';
-import Spash from './src/screens/Spash';
-import Done from './src/screens/done';
+import { Provider } from 'react-redux';
+import store from './src/Redux/store';
+import RootStack from './src/navigators/root';
+
+
 
 const Stack = createNativeStackNavigator();
 const App = () => {
@@ -25,22 +18,13 @@ const App = () => {
   }, []);
 
   return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName='Splash' screenOptions={{headerShown: false}}>
-        <Stack.Screen name="Splash" component={Spash} />
-        <Stack.Screen name="Intro1" component={Intro} />
-        <Stack.Screen name="Intro2" component={Intro2} />
-        <Stack.Screen name="Intro3" component={Intro3} />
-        <Stack.Screen name="Login" component={login} />
-        <Stack.Screen name="Signup" component={signup} />
-        {/* <Stack.Screen name="Signup2" component={signup2} /> */}
-        <Stack.Screen name="forget" component={forget} />
-        <Stack.Screen name="otp" component={otp} />
-        <Stack.Screen name="Reset" component={reset} />
-        <Stack.Screen name="dashboard" component={dashboard} /> 
-        <Stack.Screen name="alldone" component={Done}/>
-      </Stack.Navigator>
+
+    <Provider store={store}>
+      <NavigationContainer>
+    <RootStack/>
+
     </NavigationContainer>
+    </Provider>
   );
 };
 

@@ -11,7 +11,7 @@ const Spash = ({navigation}) => {
     <View>
       
       <Image
-          source={require('../assets/Splash1.png')}
+          source={require('../../assets/Splash1.png')}
           style={{marginTop: 14}}></Image>
     </View>
   )

@@ -1,28 +1,54 @@
-import { StyleSheet, Text, View, Image, TextInput,ScrollView, TouchableOpacity } from 'react-native'
-import React, { useState } from 'react'
-import { Login } from '../API';
+import { StyleSheet, Text, View, Image, TextInput,ScrollView, TouchableOpacity, Alert } from 'react-native'
+import React, { useState, useEffect } from 'react'
+import { Login } from '../../API';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import SplashScreen from 'react-native-splash-screen';
+
 
 const login = ({navigation, route}) => {
     
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+
+    const [loading, setLoading] = useState(false)
+    const [error, setError] = useState('')
+
+    useEffect(() => {
+        SplashScreen.hide();
+        retrieveLoginFromStorage();
+      }, []);
+
+      useEffect(() => {
+        // Check if the email state is not empty
+        if (email) {
+          console.log('Email retrieved from AsyncStorage:', email);
+          // You can also use the email state value for further processing, if needed
+        }
+      }, [email]);
+    
     
 
 
   const handleNext4 = ()=>{
     navigation.navigate('Signup')
   }
-//   const handleNext22 = ()=>{
-//     navigation.navigate('dashboard')
 
+  const retrieveLoginFromStorage = async ()=>{
+    try{
+      const storedEmail = await AsyncStorage.getItem(email);
 
-const [loading, setLoading] = useState(false)
-const [error, setError] = useState('')
+      if (storedEmail !== null ){
+        setEmail(storedEmail)
+        console.log(email,'email')
+      }
+      
+    }catch (error){
+      console.log('Error retrieving data', error)
+    }
+  }
 
-
-
-
+  
 
 const onClick = () => {
     setLoading(true)
@@ -35,13 +61,17 @@ const onClick = () => {
         Login(data).then(response => {  
      
             if(response.status == 'Success'){
+                AsyncStorage.setItem('email',email)
               // setData(response.data.token)
               console.log('LoginData',data)
-              navigation.navigate('dashboard')
               
+            //   navigation.reset({index: 1, routes: [{name: 'DrawerStack'}]});
+              navigation.navigate('DrawerStack')
             }
             else{
               Alert.alert("Login Failed")
+              console.warn("Login Failed ")
+
       
             }
           }).finally(e => { setLoading(false) })
@@ -52,8 +82,8 @@ const onClick = () => {
     return (
         <ScrollView>
         <View>
-            <Image source={require('../assets/login/Group93.png')} style={styles.image} />
-            <Image source={require('../assets/login/LetLogin.png')} style={styles.image} /> 
+            <Image source={require('../../assets/login/Group93.png')} style={styles.image} />
+            <Image source={require('../../assets/login/LetLogin.png')} style={styles.image} /> 
             <Text style={styles.text}>Welcome Back, you've been missed!</Text>
 
             <View style={styles.inputContainer}>
@@ -63,7 +93,7 @@ const onClick = () => {
                     onChangeText={text => setEmail(text)} value={email} 
                     />
                 
-                <Image source={require('../assets/login/Vector7.png')} style={styles.icon} />
+                <Image source={require('../../assets/login/Vector7.png')} style={styles.icon} />
             </View>
 
             <View style={styles.inputContainer}>
@@ -73,12 +103,12 @@ const onClick = () => {
                     secureTextEntry={true} 
                     onChangeText={text => setPassword(text)} value={password}
                 />
-                <Image source={require('../assets/login/Group2.png')} style={styles.icon} />
+                <Image source={require('../../assets/login/Group2.png')} style={styles.icon} />
             </View>
 
             <View style={styles.bottomContainer}>
                 <View style={styles.rememberContainer}>
-                    <Image source={require('../assets/login/Rectangle51.png')} style={styles.picture} />
+                    <Image source={require('../../assets/login/Rectangle51.png')} style={styles.picture} />
                     <Text style={styles.rememberText}>Keep me signed up</Text>
                 </View>
                
