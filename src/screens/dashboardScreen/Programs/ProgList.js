@@ -1,6 +1,7 @@
-import {StyleSheet, Text, View, Image, TextInput} from 'react-native';
+import {StyleSheet, Text, View, Image, TextInput, TouchableOpacity} from 'react-native';
 import React from 'react';
 import {Card} from 'react-native-paper';
+
 
 const ProgList = () => {
   return (
@@ -42,7 +43,7 @@ const ProgList = () => {
         style={{
           flexDirection: 'row',
           borderRadius: 10,
-          backgroundColor: 'pink',
+          backgroundColor: '',
           marginLeft: 10,
           marginRight: 10,
         }}>
@@ -76,7 +77,7 @@ const ProgList = () => {
         style={{
           flexDirection: 'row',
           borderRadius: 10,
-          backgroundColor: 'pink',
+          backgroundColor: '',
           marginLeft: 10,
           marginRight: 10,
           marginTop:15
@@ -111,7 +112,7 @@ const ProgList = () => {
         style={{
           flexDirection: 'row',
           borderRadius: 10,
-          backgroundColor: 'pink',
+          backgroundColor: '',
           marginLeft: 10,
           marginRight: 10,
           marginTop:15
@@ -141,6 +142,10 @@ const ProgList = () => {
           </View>
         </View>
       </View>
+
+      <TouchableOpacity style={styles.button}>
+          <Text style={styles.buttonText} >Add New Program</Text>
+        </TouchableOpacity>
     </View>
   );
 };
@@ -162,6 +167,7 @@ const styles = StyleSheet.create({
     marginLeft: 180,
     justifyContent: 'flex-end',
   },
+
   inputContainer: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -183,5 +189,20 @@ const styles = StyleSheet.create({
     marginTop: 5,
     marginBottom: 5,
     border: 10,
+  },
+  button: {
+    backgroundColor: '#FE4D4D',
+    width: 350,
+    height: 40,
+    borderRadius: 10,
+    justifyContent: 'center',
+    alignSelf: 'center',
+    marginTop: 90,
+    
+  },
+  buttonText: {
+    textAlign: 'center',
+    color: 'white',
+    fontWeight: 'bold',
   },
 });
