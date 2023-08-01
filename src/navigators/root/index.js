@@ -14,10 +14,11 @@ const Stack = createNativeStackNavigator();
 const RootStack = () => {
   return (
     <Stack.Navigator>
-        <Stack.Screen name="AuthStack" component={AuthStack}/>
-        <Stack.Screen name="TabStack" component={TabStack}/>
-        <Stack.Screen name="DrawerStack" component={DrawerStack}/>
-        <Stack.Screen name="DashboardStack" component={DashboardStack}/>
+      <Stack.Screen name="AuthStack" component={AuthStack}/>
+      <Stack.Screen name="DashboardStack" component={DashboardStack}/>
+      <Stack.Screen name="TabStack" component={TabStack}/>
+      <Stack.Screen name="DrawerStack" component={DrawerStack} options={{headerShown:false}}/>
+      
         
     </Stack.Navigator>
     

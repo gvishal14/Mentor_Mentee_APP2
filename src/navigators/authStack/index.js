@@ -31,6 +31,7 @@ const AuthStack = () => {
         <Stack.Screen name="otp" component={otp} />
         <Stack.Screen name="Reset" component={reset} />
         <Stack.Screen name="alldone" component={Done}/>
+        
       </Stack.Navigator>
    
     

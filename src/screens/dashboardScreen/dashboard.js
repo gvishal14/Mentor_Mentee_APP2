@@ -11,6 +11,11 @@ import {
 import React, {useState} from 'react';
 import SegmentedControlTab from 'react-native-segmented-control-tab';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
+import Home from '../../navigators/TabNavigator/Home';
+import Program from '../../navigators/TabNavigator/Program';
+import Session from '../../navigators/TabNavigator/Session';
+import Chat from '../../navigators/TabNavigator/Chat';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 const dashboard = () => {
   const [selectedIndices, setSelectedIndices] = useState([0]);
@@ -43,6 +48,7 @@ const dashboard = () => {
     //   image:require('../../assets/dashboard/Calendar.png'),
     // }
   ]
+
   return (
     <ScrollView >
       <View style={styles.container1}>
@@ -414,7 +420,7 @@ const dashboard = () => {
 
       <View style={{flexDirection:'row',backgroundColor:'',marginTop:10,alignItems:'center',justifyContent:'space-evenly'}}>
 
-        <View style={{flexDirection:'column'}}>
+        {/* <View style={{flexDirection:'column'}}>
         <TouchableOpacity>
           <Image
             source={require('../../assets/dashboard/Home.png')}
@@ -445,7 +451,7 @@ const dashboard = () => {
             source={require('../../assets/dashboard/Chat.png')}
           />
         </TouchableOpacity>
-        </View>
+        </View> */}
        
       </View>
     </ScrollView>

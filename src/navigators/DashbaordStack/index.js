@@ -12,8 +12,10 @@ const DashboardStack = () => {
   return (
     <Stack.Navigator screenOptions={{headerShown: false}}>
       <Stack.Screen name="dashboard" component={dashboard} />
-      <Stack.Screen name="TabNavigator" component={TabStack} options={{headerShown:false}}/>
-      <Stack.Screen name="drawer" component={DrawerStack}/>
+      <Stack.Screen name="TabStack" component={TabStack} options={{headerShown:false}}/>
+      <Stack.Screen name="DrawerStack" component={DrawerStack} options={{headerShown:false}}/>
+      
+     
     </Stack.Navigator>
   )
 }
