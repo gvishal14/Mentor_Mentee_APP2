@@ -11,10 +11,10 @@ import {
 import React, {useState} from 'react';
 import SegmentedControlTab from 'react-native-segmented-control-tab';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
-import Home from '../../navigators/TabNavigator/Home';
-import Program from '../../navigators/TabNavigator/Program';
-import Session from '../../navigators/TabNavigator/Session';
-import Chat from '../../navigators/TabNavigator/Chat';
+import Home from '../../navigators/ProgramStack/Home';
+import Program from '../../navigators/ProgramStack/Program';
+import Session from '../../navigators/ProgramStack/Session';
+import Chat from '../../navigators/ProgramStack/Chat';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 const dashboard = () => {

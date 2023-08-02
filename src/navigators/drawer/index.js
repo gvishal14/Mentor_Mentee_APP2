@@ -2,7 +2,7 @@ import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import  { createDrawerNavigator } from '@react-navigation/drawer'
 import DashboardStack from '../DashbaordStack';
-import Home from '../TabNavigator/Home';
+import Home from '../ProgramStack/Home';
 import TabStack from '../TabNavigator';
 
 

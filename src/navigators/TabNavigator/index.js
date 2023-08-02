@@ -1,10 +1,10 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Home from './Home';
-import Program from './Program';
-import Session from './Session';
-import Chat from './Chat';
+import Home from '../ProgramStack/Home';
+import Program from '../ProgramStack/Program';
+import Session from '../ProgramStack/Session';
+import Chat from '../ProgramStack/Chat';
 
 const Tab = createBottomTabNavigator();
 const TabStack = () => {

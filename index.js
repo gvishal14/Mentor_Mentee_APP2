@@ -11,7 +11,7 @@ import EditProg from './src/screens/dashboardScreen/Programs/EditProg';
 // import login from './src/screens/auth/login';
 
 
-// AppRegistry.registerComponent(appName, () => App);
+AppRegistry.registerComponent(appName, () => App);
 // AppRegistry.registerComponent(appName, () => login);
 // AppRegistry.registerComponent(appName, () => intro);
 // AppRegistry.registerComponent(appName, () => intro2);
@@ -25,7 +25,7 @@ import EditProg from './src/screens/dashboardScreen/Programs/EditProg';
 // AppRegistry.registerComponent(appName, () => Done);
 // AppRegistry.registerComponent(appName, () => ProgList);
 // AppRegistry.registerComponent(appName, () => ProgCategory);
-AppRegistry.registerComponent(appName, () => EditProg);
+// AppRegistry.registerComponent(appName, () => EditProg);
 
 
 

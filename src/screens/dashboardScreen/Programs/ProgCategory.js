@@ -1,13 +1,43 @@
-import { StyleSheet, Text, View, Image, ScrollView,TextInput } from 'react-native'
+import { StyleSheet, Text, View, Image, ScrollView,TextInput,FlatList } from 'react-native'
 import React, { useState } from 'react'
 import { Card } from 'react-native-paper';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
 
 const ProgCategory = ({navigation}) => {
+
+
+const ProgramCat = [
+  {
+  id:1,
+  image:require('../../../assets/ProgCategory/Group13.png'),
+  title:'Introduction',
+
+},
+{
+  id:2,
+  image:require('../../../assets/ProgCategory/Group16.png'),
+  title:'Career Consultation',
+},
+{
+  id:3,
+  image:require('../../../assets/ProgCategory/Group19.png'),
+  title:'Investment or Business',
+
+},
+{
+  id:4,
+  image:require('../../../assets/ProgCategory/Group22.png'),
+  title:'Education',
+
+},
+]
     const [program, setProgram] = useState();
+
+   
   return (
     <ScrollView>
+     
       <View style={styles.container1}>
         <Image
           source={require('../../../assets/dashboard/Ellipse7.png')}
@@ -27,15 +57,27 @@ const ProgCategory = ({navigation}) => {
         />
         <TextInput style={styles.input} placeholder="Search" />
       </View>
-<TouchableOpacity>
+
+      <FlatList 
+        data={ProgramCat}
+        renderItem={({item})=>{
+          console.log('item--->',item)
+          return(
+            // <TouchableOpacity onPress={()=>navigation.navigate('ProgramList',{item:item})}/>
+            <TouchableOpacity onPress={item.title === 'Career Consultation' ? () => navigation.navigate('ProgramList') : null}>
     <View >
-      <Card style={{marginTop:20,marginBottom:40,marginLeft:10,marginRight:10,borderRadius:10,backgroundColor:'#E9F3FE'}}>
-      <Image   source={require('../../../assets/ProgCategory/Group13.png')} style={{ marginLeft:10,marginTop:20,resizeMode: 'cover',}} />
-      <Text style={{marginLeft:20,fontSize: 18,fontWeight: 'bold',marginTop: 10,colorr:'#313131'}}> Immigration</Text>
+      <Card style={{marginTop:10,marginBottom:20,marginLeft:10,marginRight:10,borderRadius:10,backgroundColor:item.id==1?'#E9F3FE':item.id==2?'#BFB5FA':item.id==3?'#FEF7EC':'#C9F1FF'}}>
+      <Image source={item.image}   style={{ marginLeft:5,marginTop:20,resizeMode: 'cover',}} />
+      <Text style={{marginLeft:20,fontSize: 18,fontWeight: 'bold',marginTop: 10,colorr:'#313131'}}>{item.title}</Text>
       </Card>
     </View>
 </TouchableOpacity>
+          )   
+        }}
+      />
 
+
+{/* 
 <TouchableOpacity onPress={()=>navigation.navigate('ProgramList')}>
     <View>
       <Card style={{marginBottom:40,marginLeft:10,marginRight:10,borderRadius:10,backgroundColor:'#BFB5FA'}}>
@@ -61,7 +103,7 @@ const ProgCategory = ({navigation}) => {
       <Text style={{marginLeft:20,fontSize: 18,fontWeight: 'bold',marginTop: 10,colorr:'#313131'}}>Education</Text>
       </Card>
     </View>
-</TouchableOpacity>
+</TouchableOpacity> */}
 
     </ScrollView>
     

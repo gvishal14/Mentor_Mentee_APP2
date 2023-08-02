@@ -1,11 +1,13 @@
-import {StyleSheet, Text, View, Image, TextInput, TouchableOpacity} from 'react-native';
+import {StyleSheet, Text, View, Image, TextInput, TouchableOpacity,ScrollView} from 'react-native';
 import React from 'react';
 import {Card} from 'react-native-paper';
 
 
-const ProgList = () => {
+
+const ProgList = ({navigation}) => {
+  
   return (
-    <View>
+    <ScrollView>
       <View style={styles.container1}>
         <Image
           source={require('../../../assets/dashboard/Ellipse7.png')}
@@ -36,9 +38,11 @@ const ProgList = () => {
 
       <View style={{flexDirection:'row'}}>
         <Text style={{fontSize:20,fontWeight:500,color:'#313131',marginTop:10,marginBottom:10,marginLeft:10}}>Career Consultation</Text>
-        <Image source={require('../../../assets/ProgList/Filter.png')}style={styles.image3}/>
+        <Image source={require('../../../assets/ProgList/Filter.png')}style={{marginTop:10,marginLeft:130,justifyContent: 'flex-end',}}/>
       </View>
 
+      <TouchableOpacity onPress={()=>navigation.navigate('Session')}>
+      <Card style={{marginTop:10,marginBottom:10,borderRadius:10,marginLeft:10,marginRight:10,backgroundColor:'white'}}>
       <View
         style={{
           flexDirection: 'row',
@@ -51,6 +55,7 @@ const ProgList = () => {
           source={require('../../../assets/ProgList/Rectangle1.png')}
           style={{marginLeft: 10, marginTop: 10, marginBottom: 10}}
         />
+        
         <View>
           <Text style={{marginTop: 10, marginLeft: 10}}>
             Aliqua id fugiat nostr...
@@ -72,7 +77,11 @@ const ProgList = () => {
           </View>
         </View>
       </View>
+      </Card>
+      </TouchableOpacity>
 
+      <TouchableOpacity>
+      <Card style={{marginTop:10,marginBottom:10,borderRadius:10,marginLeft:10,marginRight:10,backgroundColor:'white'}}>
       <View
         style={{
           flexDirection: 'row',
@@ -107,7 +116,11 @@ const ProgList = () => {
           </View>
         </View>
       </View>
+      </Card>
+      </TouchableOpacity>
 
+      <TouchableOpacity>
+      <Card style={{marginTop:10,marginBottom:10,borderRadius:10,marginLeft:10,marginRight:10,backgroundColor:'white'}}>
       <View
         style={{
           flexDirection: 'row',
@@ -142,11 +155,13 @@ const ProgList = () => {
           </View>
         </View>
       </View>
+      </Card>
+      </TouchableOpacity>
 
       <TouchableOpacity style={styles.button}>
           <Text style={styles.buttonText} >Add New Program</Text>
         </TouchableOpacity>
-    </View>
+    </ScrollView>
   );
 };
 
@@ -197,7 +212,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     justifyContent: 'center',
     alignSelf: 'center',
-    marginTop: 90,
+    marginTop: 20
     
   },
   buttonText: {

@@ -13,8 +13,8 @@ const Program = () => {
    <Stack.Navigator initialRouteName='ProgramCategory' >
     <Stack.Screen name='ProgramCategory' component={ProgCategory}  options={{headerShown:false}} />
     <Stack.Screen name='More' component={ProgDetailsM}/>
-    <Stack.Screen name='Session' component={ProgDetailsS}/>
-    <Stack.Screen name='ProgramList' component={ProgList}/>
+    <Stack.Screen name='Session' component={ProgDetailsS} options={{headerShown:false}}/>
+    <Stack.Screen name='ProgramList' component={ProgList}  options={{headerShown:false}}/>
    </Stack.Navigator> 
 
   )
