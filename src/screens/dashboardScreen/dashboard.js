@@ -10,12 +10,9 @@ import {
 } from 'react-native';
 import React, {useState} from 'react';
 import SegmentedControlTab from 'react-native-segmented-control-tab';
-import {Colors} from 'react-native/Libraries/NewAppScreen';
-import Home from '../../navigators/ProgramStack/Home';
-import Program from '../../navigators/ProgramStack/Program';
-import Session from '../../navigators/ProgramStack/Session';
-import Chat from '../../navigators/ProgramStack/Chat';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+
+
+
 
 const dashboard = () => {
   const [selectedIndices, setSelectedIndices] = useState([0]);

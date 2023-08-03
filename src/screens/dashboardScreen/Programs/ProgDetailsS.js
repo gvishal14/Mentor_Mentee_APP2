@@ -33,7 +33,7 @@ const ProgramData = [
   },
 ];
 
-const ProgDetailsS = () => {
+const ProgDetailsS = ({navigation}) => {
   const [customStyleIndex, setCustomStyleIndex] = useState(0);
   const role = customStyleIndex === 0 ? 'Session' : 'More';
 
@@ -326,37 +326,127 @@ const ProgDetailsS = () => {
             </Text>
           </View>
 
-          
-          {/* <TouchableOpacity style={{height:20}}>
-            <Card style={{height:70}}>
-            <View style={{flexDirection:'row',height:50}}>
-              <Image source={require('../../../assets/ProgramDetailsS/clock.png')}/>
-              <Text style={{fontSize:16,fontWeight:400,color:'#313131'}}>
-                Add New Session
-              </Text>
-            </View>
-            </Card>
-          </TouchableOpacity> */}
+          <View style={styles.buttonContainer}>
+            <TouchableOpacity style={styles.button}>
+              <View
+                style={{
+                  flex: 1,
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                  justifyContent: 'space-evenly',
+                }}>
+                <Image
+                  source={require('../../../assets/ProgramDetailsS/clock.png')}
+                />
+                <Text style={styles.buttonText}>Add New Session</Text>
+                <Image
+                  source={require('../../../assets/ProgramDetailsS/Stroke.png')}
+                />
+              </View>
+            </TouchableOpacity>
+          </View>
 
+          <View style={styles.buttonContainer}>
+            <TouchableOpacity style={styles.button} onPress={()=> navigation.navigate('RegisteredMentees')}>
+              <View
+                style={{
+                  flex: 1,
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                  justifyContent: 'space-evenly',
+                }}>
+                <Image
+                  source={require('../../../assets/ProgramDetailsS/3User.png')}
+                />
+                <Text style={styles.buttonText}>Registered Mentees</Text>
+                <Image
+                  source={require('../../../assets/ProgramDetailsS/Stroke.png')}
+                />
+              </View>
+            </TouchableOpacity>
+          </View>
 
-                {/* <View style={{flexDirection:'row'}}>
-        <TouchableOpacity>
-          <View style={{marginTop:10}}>
-        <Image source={require('../../../assets/ProgramDetailsS/clock.png')} />
+          <View style={styles.buttonContainer}>
+            <TouchableOpacity style={styles.button}>
+              <View
+                style={{
+                  flex: 1,
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                  justifyContent: 'space-evenly',
+                }}>
+                <Image
+                  source={require('../../../assets/ProgramDetailsS/Chat.png')}
+                />
+                <Text style={styles.buttonText}>Chat With Mentees</Text>
+                <Image
+                  source={require('../../../assets/ProgramDetailsS/Stroke.png')}
+                />
+              </View>
+            </TouchableOpacity>
+          </View>
+
+          <View style={styles.buttonContainer}>
+            <TouchableOpacity style={styles.button} onPress={()=> navigation.navigate('CompletedSessions')}>
+              <View
+                style={{
+                  flex: 1,
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                  justifyContent: 'space-evenly',
+                }}>
+                <Image
+                  source={require('../../../assets/ProgramDetailsS/complete.png')}
+                />
+                <Text style={styles.buttonText}>Completed Session</Text>
+                <Image
+                  source={require('../../../assets/ProgramDetailsS/Stroke.png')}
+                />
+              </View>
+            </TouchableOpacity>
+          </View>
+
+          <View style={styles.buttonContainer}>
+            <TouchableOpacity style={styles.button}>
+              <View
+                style={{
+                  flex: 1,
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                  justifyContent: 'space-evenly',
+                }}>
+                <Image
+                  source={require('../../../assets/ProgramDetailsS/raise.png')}
+                />
+                <Text style={styles.buttonText}>Raise a Dispute</Text>
+                <Image
+                  source={require('../../../assets/ProgramDetailsS/Stroke.png')}
+                />
+              </View>
+            </TouchableOpacity>
+          </View>
+
+          <View style={styles.buttonContainer}>
+            <TouchableOpacity style={styles.button}>
+              <View
+                style={{
+                  flex: 1,
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                  justifyContent: 'space-evenly',
+                }}>
+                <Image
+                  source={require('../../../assets/ProgramDetailsS/Star.png')}
+                />
+                <Text style={styles.buttonText}>View Ratings</Text>
+                <Image
+                  source={require('../../../assets/ProgramDetailsS/Stroke.png')}
+                />
+              </View>
+            </TouchableOpacity>
+          </View>
+
         </View>
-        <Text style={styles.buttonText} >Start Exploring</Text>
-        </TouchableOpacity>
-
-      </View> */}
-
-      <View>
-        <Text>
-          
-        </Text>
-      </View>
-
-        </View>
-        
       )}
     </ScrollView>
   );
@@ -388,22 +478,22 @@ const styles = StyleSheet.create({
     marginLeft: 10,
   },
   button: {
-    backgroundColor: '#F7F7F7',
+    backgroundColor: '#FFFFFF',
     width: 350,
     height: 40,
     borderRadius: 10,
     justifyContent: 'center',
     alignSelf: 'center',
-    marginTop: 10,
-    marginBottom:10,
-    
   },
   buttonText: {
     textAlign: 'center',
     color: 'white',
     fontWeight: 'bold',
-    color:'#313131',
-    marginBottom:10,
+    color: '#313131',
+    marginHorizontal: 40,
   },
-  
+  buttonContainer: {
+    alignItems: 'center',
+    marginTop:10
+  },
 });
