@@ -7,6 +7,9 @@ import ProgDetailsS from '../../screens/dashboardScreen/Programs/ProgDetailsS'
 import ProgList from '../../screens/dashboardScreen/Programs/ProgList'
 import RegisteredMentees from '../../screens/dashboardScreen/Programs/RegisteredMentees'
 import CompletedSessions from '../../screens/dashboardScreen/Programs/ProgDetailsMore/CompletedSessions'
+import SelectSession from '../../screens/dashboardScreen/Programs/ProgDetailsMore/Raise/SelectSession'
+import SelectMentees from '../../screens/dashboardScreen/Programs/ProgDetailsMore/Raise/SelectMentees'
+import AddComment from '../../screens/dashboardScreen/Programs/ProgDetailsMore/Raise/AddComment'
 
 
 const Stack = createNativeStackNavigator();
@@ -18,6 +21,9 @@ const Program = () => {
     <Stack.Screen name='ProgramList' component={ProgList}  options={{headerShown:false}}/>
     <Stack.Screen name='RegisteredMentees' component={RegisteredMentees}  options={{headerShown:false}}/>
     <Stack.Screen name='CompletedSessions' component={CompletedSessions} options={{headerShown:false}}/>
+    <Stack.Screen name='SelectSession' component={SelectSession} options={{headerShown:false}}/>
+    <Stack.Screen name='SelectMentees' component={SelectMentees} options={{headerShown:false}}/>
+    <Stack.Screen name='AddComment' component={AddComment} options={{headerShown:false}}/>
    </Stack.Navigator> 
 
   )
