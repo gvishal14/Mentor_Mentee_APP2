@@ -427,7 +427,7 @@ const ProgDetailsS = ({navigation}) => {
           </View>
 
           <View style={styles.buttonContainer}>
-            <TouchableOpacity style={styles.button}>
+            <TouchableOpacity style={styles.button} onPress={()=> navigation.navigate('Rating')}>
               <View
                 style={{
                   flex: 1,

@@ -158,7 +158,7 @@ const ProgList = ({navigation}) => {
       </Card>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity style={styles.button} onPress={()=>navigation.navigate('AddNewProgram')}>
           <Text style={styles.buttonText} >Add New Program</Text>
         </TouchableOpacity>
     </ScrollView>
