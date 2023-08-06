@@ -3,7 +3,7 @@ import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Home from '../ProgramStack/Home';
 import Program from '../ProgramStack/Program';
-import Session from '../ProgramStack/Session';
+import Session from '../SessionStack/Session.js';
 import Chat from '../ProgramStack/Chat';
 
 const Tab = createBottomTabNavigator();
