@@ -1,8 +1,7 @@
-import { StyleSheet, Text, View, ScrollView,Image,TouchableOpacity } from 'react-native'
+import { StyleSheet, Text, View, ScrollView,Image,TouchableOpacity,TextInput } from 'react-native'
 import React from 'react'
-import { useNavigation } from '@react-navigation/native';
 import {Card} from 'react-native-paper';
-import { TextInput } from 'react-native-gesture-handler';
+
 
 const AddComment = ({route}) => {
 
@@ -148,9 +147,29 @@ const AddComment = ({route}) => {
 
 
 
+              <View style={styles.inputContainer}>
+              <TextInput style={styles.input} placeholder="Your Comment" 
+              // onChangeText={text => setRefCode(text)}
+              // value={refCode}
+              />
+             
+            </View>
 
+            <View style={styles.inputContainer}>
+            <TextInput style={styles.input2} placeholder="Upload Evidence" />
+            
+            <View>
+            <TouchableOpacity>
+            <Image source={require('../../../../../assets/Selected/Group148.png')} style={{marginRight:10}}/>
+            </TouchableOpacity>
+            </View>
 
+           
+          </View>
 
+          <TouchableOpacity style={styles.button}>
+          <Text style={styles.buttonText} >Raise a Dispute</Text>
+        </TouchableOpacity>
     </ScrollView>
   )
 }
@@ -178,8 +197,29 @@ const styles = StyleSheet.create({
   },
   input: {
     flex: 1,
+    height: 200,
+    fontSize: 16,
+    paddingHorizontal: 10,
+  },
+  input2: {
+    flex: 1,
     height: 40,
     fontSize: 16,
     paddingHorizontal: 10,
+  },
+  button: {
+    backgroundColor: '#FE4D4D',
+    width: 350,
+    height: 40,
+    borderRadius: 10,
+    justifyContent: 'center',
+    alignSelf: 'center',
+    marginTop: 20
+    
+  },
+  buttonText: {
+    textAlign: 'center',
+    color: 'white',
+    fontWeight: 'bold',
   },
 })

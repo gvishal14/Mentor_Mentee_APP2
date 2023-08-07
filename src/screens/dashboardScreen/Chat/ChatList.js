@@ -1,14 +1,14 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
-const Session = () => {
+const ChatList = () => {
   return (
     <View>
-      <Text>Session</Text>
+      <Text>ChatList</Text>
     </View>
   )
 }
 
-export default Session
+export default ChatList
 
 const styles = StyleSheet.create({})

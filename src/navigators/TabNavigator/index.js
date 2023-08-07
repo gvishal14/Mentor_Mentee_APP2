@@ -3,8 +3,9 @@ import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Home from '../ProgramStack/Home';
 import Program from '../ProgramStack/Program';
-import Session from '../ProgramStack/Session';
-import Chat from '../ProgramStack/Chat';
+import Session from '../SessionStack/Session.js';
+import Chat from '../ChatStack/Chat';
+
 
 const Tab = createBottomTabNavigator();
 const TabStack = () => {
@@ -13,7 +14,8 @@ const TabStack = () => {
         <Tab.Screen name="Home" component={Home} options={{headerShown:false}}/>
         <Tab.Screen name="Session" component={Session} />
         <Tab.Screen name="Program" component={Program} options={{headerShown:false}} />
-        <Tab.Screen name="Chat" component={Chat} />
+        <Tab.Screen name="Chat" component={Chat}  options={{headerShown:false}}/>
+
         
         
       </Tab.Navigator>

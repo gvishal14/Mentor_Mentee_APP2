@@ -1,6 +1,7 @@
 import {StyleSheet, Text, View, Image, TextInput, TouchableOpacity,ScrollView} from 'react-native';
 import React from 'react';
 import {Card} from 'react-native-paper';
+import Header from '../../Header/index';
 
 
 
@@ -8,32 +9,9 @@ const ProgList = ({navigation}) => {
   
   return (
     <ScrollView>
-      <View style={styles.container1}>
-        <Image
-          source={require('../../../assets/dashboard/Ellipse7.png')}
-          style={styles.image}
-        />
-        <Text
-          style={{
-            fontWeight: 500,
-            fontSize: 18,
-            color: '#313131',
-            marginLeft: 10,
-          }}>
-          Programs
-        </Text>
-        <Image
-          source={require('../../../assets/dashboard/Notification.png')}
-          style={styles.image3}
-        />
-      </View>
 
-      <View style={styles.inputContainer}>
-        <Image
-          source={require('../../../assets/dashboard/Search.png')}
-          style={styles.icon}
-        />
-        <TextInput style={styles.input} placeholder="Search" />
+      <View>
+        <Header/>
       </View>
 
       <View style={{flexDirection:'row'}}>
@@ -58,7 +36,7 @@ const ProgList = ({navigation}) => {
         
         <View>
           <Text style={{marginTop: 10, marginLeft: 10}}>
-            Aliqua id fugiat nostr...
+            Aliqua id fugiat nostr... 
           </Text>
           <View style={{flexDirection:'row'}}>
           <Image source={require('../../../assets/ProgList/Calendar.png')} style={{marginTop:13,marginLeft:10}}/>
@@ -158,7 +136,7 @@ const ProgList = ({navigation}) => {
       </Card>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity style={styles.button} onPress={()=>navigation.navigate('AddNewProgram')}>
           <Text style={styles.buttonText} >Add New Program</Text>
         </TouchableOpacity>
     </ScrollView>

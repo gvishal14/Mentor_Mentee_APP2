@@ -2,6 +2,7 @@ import { StyleSheet, Text, View, Image, ScrollView,TextInput,FlatList } from 're
 import React, { useState } from 'react'
 import { Card } from 'react-native-paper';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import Header from '../../Header/index';
 
 
 const ProgCategory = ({navigation}) => {
@@ -38,24 +39,9 @@ const ProgramCat = [
   return (
     <ScrollView>
      
-      <View style={styles.container1}>
-        <Image
-          source={require('../../../assets/dashboard/Ellipse7.png')}
-          style={styles.image}
-        />
-        <Text style={{fontWeight:500,fontSize:18,color: '#313131', marginLeft: 10}}>Programs</Text>
-        <Image
-          source={require('../../../assets/dashboard/Notification.png')}
-          style={styles.image3}
-        />
-      </View>
 
-      <View style={styles.inputContainer}>
-        <Image
-          source={require('../../../assets/dashboard/Search.png')}
-          style={styles.icon}
-        />
-        <TextInput style={styles.input} placeholder="Search" />
+      <View>
+       <Header/>
       </View>
 
       <FlatList 

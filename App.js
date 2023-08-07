@@ -6,6 +6,8 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import { Provider } from 'react-redux';
 import store from './src/Redux/store';
 import RootStack from './src/navigators/root';
+import { Calendar } from 'react-native-calendars';
+
 
 
 
