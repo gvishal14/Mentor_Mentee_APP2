@@ -2,6 +2,7 @@ import { StyleSheet, Text, View, ScrollView,Image,TouchableOpacity } from 'react
 import React from 'react'
 import { useNavigation } from '@react-navigation/native';
 import {Card} from 'react-native-paper';
+import { TextInput } from 'react-native-gesture-handler';
 
 const AddComment = ({route}) => {
 
@@ -126,6 +127,25 @@ const AddComment = ({route}) => {
                 </Card>
               </TouchableOpacity>
 
+              <View>
+      <Text
+          style={{
+            fontWeight: 500,
+            fontSize: 18,
+            color: '#313131',
+            marginLeft: 10,
+          }}>
+          Add Comment
+        </Text>
+      </View>
+
+      <View style={styles.inputContainer}>
+        <TextInput style={styles.input} placeholder="Referral Code" 
+        // onChangeText={text => setRefCode(text)}
+        //value={refCode}
+        />
+      </View>
+
 
 
 
@@ -146,5 +166,20 @@ const styles = StyleSheet.create({
   image3: {
     marginLeft: 140,
     justifyContent: 'flex-end',
+  },
+  inputContainer: {
+    marginHorizontal: 20,
+    marginVertical: 10,
+    borderWidth: 1,
+    borderColor: 'black',
+    borderRadius: 5,
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  input: {
+    flex: 1,
+    height: 40,
+    fontSize: 16,
+    paddingHorizontal: 10,
   },
 })

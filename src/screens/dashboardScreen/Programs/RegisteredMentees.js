@@ -138,10 +138,12 @@ const RegisteredMentees = () => {
                       </Text>
                     </View>
                     <View>
-                    <Image
+                      <TouchableOpacity>
+                      <Image
                       source={item.image2}
                       style={{marginLeft:50, marginTop: 25, marginBottom: 10}}
                     />
+                      </TouchableOpacity>
                     </View>
                   </View>
                   <View style={{flexDirection: 'row'}}>
