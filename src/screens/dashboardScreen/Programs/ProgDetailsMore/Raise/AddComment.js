@@ -138,12 +138,6 @@ const AddComment = ({route}) => {
         </Text>
       </View>
 
-      <View style={styles.inputContainer}>
-        <TextInput style={styles.input} placeholder="Referral Code" 
-        // onChangeText={text => setRefCode(text)}
-        //value={refCode}
-        />
-      </View>
 
 
 

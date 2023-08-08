@@ -50,7 +50,7 @@ const login = ({navigation, route}) => {
 
   
 
-const onClick = () => {
+const onClick = async() => {
     setLoading(true)
     let data={
         "email":email,
@@ -58,11 +58,15 @@ const onClick = () => {
         
     }
 
-        Login(data).then(response => {  
+    try {
+        const response = await Login(data);
+
+        // Login(data).then(response => {  
      
             if(response.status == 'Success'){
-                AsyncStorage.setItem('email',email)
-              // setData(response.data.token)
+               await AsyncStorage.setItem('email',email)
+              await  AsyncStorage.setItem('userData',JSON.stringify(response.data)) 
+              console.log('data------->',response.data)
               console.log('LoginData',data)
               
             //   navigation.reset({index: 1, routes: [{name: 'DrawerStack'}]});
@@ -74,8 +78,14 @@ const onClick = () => {
 
       
             }
-          }).finally(e => { setLoading(false) })
-
+          }
+        //   ).finally(e => { setLoading(false) })
+        catch (error) {
+            console.error('Error during login:', error);
+          }
+          finally {
+            setLoading(false);
+          }
     
   }
 

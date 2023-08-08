@@ -5,8 +5,10 @@ import AddNewSession from '../../screens/dashboardScreen/Sessions/AddNewSession'
 import EditSession from '../../screens/dashboardScreen/Sessions/EditSession';
 import AddNewSession1 from '../../screens/dashboardScreen/Sessions/AddNewSession1';
 import SessionList from '../../screens/dashboardScreen/Sessions/SessionList';
-import SessionHeader from '../../screens/Header/SessionHeader';
+
 import Calendars from '../../screens/dashboardScreen/Sessions/Calendar';
+import Online from '../../screens/dashboardScreen/Sessions/Online';
+import Offline from '../../screens/dashboardScreen/Sessions/Offline';
 // import AddNewSession from '../../screens/dashboardScreen/Sessions/1s'
 
 const Stack = createNativeStackNavigator();
@@ -17,6 +19,8 @@ const Session = () => {
       <Stack.Screen name='Calendars' component={Calendars} />
       <Stack.Screen name='AddNewSession1' component={AddNewSession1} />
       <Stack.Screen name='AddNewSession' component={AddNewSession}/>
+      <Stack.Screen name='Online' component={Online}/>
+      <Stack.Screen name='Offline' component={Offline}/>
     {/* <Stack.Screen name='EditSession' component={EditSession} options={{headerShown:false}}/> */}
 
     {/* <Stack.Screen name='1s' component={AddNewSession}/> */}

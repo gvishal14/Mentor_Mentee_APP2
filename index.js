@@ -10,6 +10,7 @@ import App from './App';
 import ProgList from './src/screens/dashboardScreen/Programs/ProgList';
 import ProgCategory from './src/screens/dashboardScreen/Programs/ProgCategory';
 import EditProg from './src/screens/dashboardScreen/Programs/EditProg';
+import WebViewExample from './src/screens/dashboardScreen/Sessions/WebViewExample';
 // import login from './src/screens/auth/login';
 
 
@@ -28,6 +29,7 @@ AppRegistry.registerComponent(appName, () => App);
 // AppRegistry.registerComponent(appName, () => ProgList);
 // AppRegistry.registerComponent(appName, () => ProgCategory);
 // AppRegistry.registerComponent(appName, () => EditProg);
+
 
 
 

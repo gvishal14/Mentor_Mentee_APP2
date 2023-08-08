@@ -62,3 +62,45 @@ export const Reset = (data,token) => {
       .then(response => response)
       .catch(e => console.log(e, 'error'));
 };
+
+// export const SessionList = (mentorid) => {
+//   const url = `${AppUrl.SESSIONLIST}&mentorid=${mentorid}&page=1&filter={}&sessionType=online`;
+//   console.log('URL-->', url);
+  
+//   return fetch(url, {
+//   // console.log('URl--->', `${AppUrl.SESSIONLIST + mentorid}`)
+//   // return fetch(`${AppUrl.SESSIONLIST}`, {
+//       method: 'GET',
+      
+//   }).then(response => response.json())
+//       .then(response => response)
+//       .catch(e => console.log(e, 'error'));
+// };
+
+export const fetchSessionList = async (mentorid, sessionType,token) => {
+  // const url = `${BASEURL}/mentorship/getAllDaywise?mentorid=${mentorid}&page=${1}&filter=${{}}
+  //              &sessionType=${sessionType}`;
+  const url = `${AppUrl.fetchSessionList}&mentorid=${mentorid}&page=1&sessionType=${sessionType}`;
+  console.log("Data---->",mentorid,sessionType)
+  try {
+    const response = await fetch(url, {
+      method: 'GET',
+      headers: { 
+        Authorization: token,
+        'Content-Type': 'application/json',
+      }
+    });
+
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+
+    const data = await response.json();
+    console.log('data',data)
+    return data;
+
+  } catch (error) {
+    console.error('Error fetching session list:', error);
+    throw error;
+  }
+};
