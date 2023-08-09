@@ -66,11 +66,13 @@ const onClick = async() => {
             if(response.status == 'Success'){
                await AsyncStorage.setItem('email',email)
               await  AsyncStorage.setItem('userData',JSON.stringify(response.data)) 
+              await AsyncStorage.setItem('token', response.data.token);
               console.log('data------->',response.data)
               console.log('LoginData',data)
+              // console.log('token--->', response.data.token)
               
             //   navigation.reset({index: 1, routes: [{name: 'DrawerStack'}]});
-              navigation.navigate('DrawerStack')
+              navigation.navigate('DrawerStack',{token:response.data,type:'login'});
             }
             else{
               Alert.alert("Login Failed")

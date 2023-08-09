@@ -68,60 +68,85 @@ const SessionList = () => {
 //     }
 //   };
 
-const fetchSessionData = async () => {
-  try {
-    const userdata = await AsyncStorage.getItem("userData");
-    if (!userdata) {
-      console.log('UserData not available');
-      return;
-    }
-
-    const parsedUserData = JSON.parse(userdata); // Parse the JSON string
-    const mentorid = '64d1d72c8222b058983b8f86'; // Replace with the actual mentor id
-    const sessionType = customStyleIndex === 0 ? 'online' : 'offline';
-    const response = await fetchSessionList(parsedUserData.mentorid, parsedUserData.sessionType, parsedUserData.token);
-    setSessionData(response);
-  } catch (error) {
-    console.error('Error fetching session data:', error);
-  }
-};
 
 useEffect(() => {
-  fetchSessionData();
+  const fetchUserData = async () => {
+    try {
+      const userdata = await AsyncStorage.getItem('userData');
+
+      if (userdata) {
+        const { mentorid, sessionType, token } = JSON.parse(userdata);
+        const response = await fetchSessionList(mentorid, sessionType, token);
+        setSessionData(response); // Update the state with fetched data
+      } else {
+        console.error('User data not found in AsyncStorage.');
+      }
+    } catch (error) {
+      console.error('Error fetching user data:', error);
+    }
+  };
+
+  fetchUserData();
+
+  // Fetch session data when the component mounts
 }, [customStyleIndex]);
 
-  // const fetchSessionData = async () => {
-  //   try {
-  //     const userdata = await AsyncStorage.getItem("userData");
-      
-  //     if (userdata) {
-  //       const { mentorid, sessionType, token } = JSON.parse(userdata);
-  //       const response = await fetchSessionList(mentorid, sessionType, token);
-  //       setSessionData(response); // Update the state with fetched data
-  //     } else {
-  //       console.error('User data not found in AsyncStorage.');
-  //     }
-  //   } catch (error) {
-  //     console.error('Error fetching session data:', error);
-  //   }
-  // };
 
-  useEffect(() => {
-    // Process data when sessionData changes
-    if (sessionData.length > 0) {
-      const response = sessionData; // Replace with your actual response structure
-      if (response.status === 'Success') {
-        AsyncStorage.setItem('mentorid', mentorid); // Set mentorid in AsyncStorage
-        console.log('data------->', response.data);
-        console.log('mentorid', mentorid);
-        // navigation.reset({index: 1, routes: [{name: 'DrawerStack'}]});
-        // navigation.navigate('DrawerStack');
-      } else {
-        Alert.alert('Login Failed');
-        console.warn('Login Failed');
-      }
-    }
-  }, [sessionData]);
+
+// const fetchSessionData = async () => {
+//   try {
+//     const userdata = await AsyncStorage.getItem("userData");
+//     if (!userdata) {
+//       console.log('UserData not available');
+//       return;
+//     }
+
+//     const parsedUserData = JSON.parse(userdata); // Parse the JSON string
+//     const mentorid = '64d1d72c8222b058983b8f86'; // Replace with the actual mentor id
+//     const sessionType = customStyleIndex === 0 ? 'online' : 'offline';
+//     const response = await fetchSessionList(parsedUserData.mentorid, parsedUserData.sessionType, parsedUserData.token);
+//     setSessionData(response);
+//   } catch (error) {
+//     console.error('Error fetching session data:', error);
+//   }
+// };
+
+// useEffect(() => {
+//   fetchSessionData();
+// }, [customStyleIndex]);
+
+//   const fetchSessionData = async () => {
+//     try {
+//       const userdata = await AsyncStorage.getItem("userData");
+      
+//       if (userdata) {
+//         const { mentorid, sessionType, token } = JSON.parse(userdata);
+//         const response = await fetchSessionList(mentorid, sessionType, token);
+//         setSessionData(response); // Update the state with fetched data
+//       } else {
+//         console.error('User data not found in AsyncStorage.');
+//       }
+//     } catch (error) {
+//       console.error('Error fetching session data:', error);
+//     }
+//   };
+
+  // useEffect(() => {
+  //   // Process data when sessionData changes
+  //   if (sessionData.length > 0) {
+  //     const response = sessionData; // Replace with your actual response structure
+  //     if (response.status === 'Success') {
+  //       AsyncStorage.setItem('mentorid', mentorid); // Set mentorid in AsyncStorage
+  //       console.log('data------->', response.data);
+  //       console.log('mentorid', mentorid);
+  //       // navigation.reset({index: 1, routes: [{name: 'DrawerStack'}]});
+  //       // navigation.navigate('DrawerStack');
+  //     } else {
+  //       Alert.alert('Login Failed');
+  //       console.warn('Login Failed');
+  //     }
+  //   }
+  // }, [sessionData]);
 
 
     

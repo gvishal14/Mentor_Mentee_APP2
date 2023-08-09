@@ -12,7 +12,7 @@ import Offline from '../../screens/dashboardScreen/Sessions/Offline';
 // import AddNewSession from '../../screens/dashboardScreen/Sessions/1s'
 
 const Stack = createNativeStackNavigator();
-const Session = () => {
+const Session = () => { 
   return (
     <Stack.Navigator screenOptions={{headerShown: false}}>
       <Stack.Screen name='SessionList' component={SessionList}/>
@@ -21,7 +21,7 @@ const Session = () => {
       <Stack.Screen name='AddNewSession' component={AddNewSession}/>
       <Stack.Screen name='Online' component={Online}/>
       <Stack.Screen name='Offline' component={Offline}/>
-    {/* <Stack.Screen name='EditSession' component={EditSession} options={{headerShown:false}}/> */}
+      <Stack.Screen name='EditSession' component={EditSession} options={{headerShown:false}}/>
 
     {/* <Stack.Screen name='1s' component={AddNewSession}/> */}
 

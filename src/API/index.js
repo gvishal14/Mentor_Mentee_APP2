@@ -27,6 +27,7 @@ export const Otp = (data, token) => {
 
 
   export const Login = (data,token) => {
+    console.log('token', token)
     return fetch(AppUrl.LOGIN, {
         method: 'POST',
         body: JSON.stringify(data),
@@ -80,7 +81,7 @@ export const Reset = (data,token) => {
 export const fetchSessionList = async (mentorid, sessionType,token) => {
   // const url = `${BASEURL}/mentorship/getAllDaywise?mentorid=${mentorid}&page=${1}&filter=${{}}
   //              &sessionType=${sessionType}`;
-  const url = `${AppUrl.fetchSessionList}&mentorid=${mentorid}&page=1&sessionType=${sessionType}`;
+  const url = `${AppUrl.fetchSessionList}&mentorid=${mentorid}&page=1&filter=&sessionType=${sessionType}`;
   console.log("Data---->",mentorid,sessionType)
   try {
     const response = await fetch(url, {

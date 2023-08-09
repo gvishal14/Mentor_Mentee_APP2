@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View,ScrollView,Image,TouchableOpacity } from 'react-native'
 import React from 'react'
 
-const Online = () => {
+const Online = ({navigation}) => {
   return (
     <ScrollView>
           <View style={styles.container1}>
@@ -57,6 +57,12 @@ const Online = () => {
         <Text style={{color:'#313131'}}>
             Session link
         </Text>
+        <TouchableOpacity>
+        <Text style={{color:'#006BB4'}}>
+        Zoom/test.dsfrghjozisdhvxcguhvxdv
+        </Text>
+        </TouchableOpacity>
+
     </View>
     <View style={{flexDirection: 'row'}}>
                     <View>
@@ -138,10 +144,17 @@ const Online = () => {
                     </Text>
                   </View>
 
+<View style={{flexDirection:'row'}}>
+
 
                   <TouchableOpacity style={styles.nextButton} >
-            <Text style={styles.buttonText}>Edit Session</Text>
+            <Text style={styles.buttonText}>Cancel Session</Text>
           </TouchableOpacity>
+
+          <TouchableOpacity style={styles.nextButton2} onPress={()=>navigation.navigate('EditSession')}>
+            <Text style={styles.buttonText2}>Edit Session</Text>
+          </TouchableOpacity>
+          </View>
 
     </ScrollView>
   )
@@ -160,19 +173,38 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-end',
       },
       nextButton: {
+        paddingVertical: 10,
+        paddingHorizontal: 20,
+        borderRadius: 5,
+        width:140,
+        height:50,
+        marginLeft:10,
+        marginTop:10,
+        marginBottom:10,
+        outlineColor:'red'
+      },
+      buttonText: {
+        color: '#FE4D4D',
+        fontWeight: 'bold',
+        fontSize: 14,
+        justifyContent: 'center',
+      },
+      nextButton2: {
         backgroundColor: '#FE4D4D',
         paddingVertical: 10,
         paddingHorizontal: 20,
         borderRadius: 5,
         width:140,
         height:50,
-        marginLeft:10
-        
+        marginLeft:10,
+        marginTop:10,
+        marginBottom:10
       },
-      buttonText: {
+
+      buttonText2: {
         color: 'white',
         fontWeight: 'bold',
-        fontSize: 18,
+        fontSize: 14,
         justifyContent: 'center',
       },
 })
