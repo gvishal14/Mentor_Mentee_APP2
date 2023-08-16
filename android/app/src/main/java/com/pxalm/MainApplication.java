@@ -1,4 +1,5 @@
 package com.pxalm;
+import com.dieam.reactnativepushnotification.ReactNativePushNotificationPackage;  // <--- Import Package
 
 import android.app.Application;
 import com.facebook.react.PackageList;
@@ -27,6 +28,7 @@ public class MainApplication extends Application implements ReactApplication {
           // packages.add(new MyReactNativePackage());
           return packages;
         }
+        
 
         @Override
         protected String getJSMainModuleName() {

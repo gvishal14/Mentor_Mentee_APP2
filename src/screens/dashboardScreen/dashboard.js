@@ -10,11 +10,19 @@ import {
 } from 'react-native';
 import React, {useState} from 'react';
 import SegmentedControlTab from 'react-native-segmented-control-tab';
+import { useSelector } from 'react-redux';
 
 
 
 
 const dashboard = () => {
+
+
+  const isLoggedInRedux = useSelector((state) => state.user.userData); 
+  console.log("UserData----->",isLoggedInRedux);  
+
+
+
   const [selectedIndices, setSelectedIndices] = useState([0]);
 
   const handleMultipleIndexSelect = index => {

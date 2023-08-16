@@ -18,7 +18,6 @@ import OtpInputs from 'react-native-otp-inputs'
 import KeyboardAwareScrollView from 'react-native-keyboard-aware-scroll-view'
 import { Otp } from '../../API';
 import login from './login';
-import axios from 'axios';
 
 
 const otp = ({navigation,route}) => {

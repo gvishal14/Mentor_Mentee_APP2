@@ -3,9 +3,19 @@ import React, { useState, useEffect } from 'react'
 import { Login } from '../../API';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import SplashScreen from 'react-native-splash-screen';
+import {useDispatch,useSelector} from 'react-redux'
+// import {loginSuccess} from '../../Redux/authActions'
+import { loginSuccess } from '../../Redux/loginSlice';
+import {setUserData} from '../../Redux/userSlice'
 
 
 const login = ({navigation, route}) => {
+
+    const dispatch = useDispatch();
+
+    
+    
+   
     
 
     const [email, setEmail] = useState('')
@@ -13,6 +23,8 @@ const login = ({navigation, route}) => {
 
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState('')
+
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
 
     useEffect(() => {
         SplashScreen.hide();
@@ -57,6 +69,7 @@ const onClick = async() => {
         "password":password,
         
     }
+    
 
     try {
         const response = await Login(data);
@@ -64,15 +77,19 @@ const onClick = async() => {
         // Login(data).then(response => {  
      
             if(response.status == 'Success'){
+                // const {userData, token} = response.data;
+                // dispatch(setUserData(JSON.stringify(response.data)))
+                dispatch(setUserData(response.data))
                await AsyncStorage.setItem('email',email)
               await  AsyncStorage.setItem('userData',JSON.stringify(response.data)) 
               await AsyncStorage.setItem('token', response.data.token);
+              await AsyncStorage.setItem('isLoggedIn', 'true');
               console.log('data------->',response.data)
               console.log('LoginData',data)
-              // console.log('token--->', response.data.token)
+              console.log('token--->', response.data.token)
               
             //   navigation.reset({index: 1, routes: [{name: 'DrawerStack'}]});
-              navigation.navigate('DrawerStack',{token:response.data,type:'login'});
+              navigation.navigate('DrawerStack',{token:response.data.token,type:'login'});
             }
             else{
               Alert.alert("Login Failed")

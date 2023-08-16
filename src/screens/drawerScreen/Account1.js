@@ -24,6 +24,18 @@ const Account1 = () => {
       <View style={{marginLeft: 10}}>
         <Image source={require('../../assets/Account/profile.png')} />
       </View>
+
+      <View style={{flexDirection: 'row', marginTop: 10, marginLeft: 10}}>
+        <Text style={{fontSize: 20, color: '#313131'}}>Mentor</Text>
+        <Switch
+          trackColor={{false: '#767577', true: '#81b0ff'}}
+          thumbColor={isEnabled ? '#f5dd4b' : '#f4f3f4'}
+          ios_backgroundColor="#3e3e3e"
+          onValueChange={toggleSwitch}
+          value={isEnabled}
+        />
+        <Text style={{fontSize: 20, color: '#313131'}}>Mentee</Text>
+      </View>
       
       
 

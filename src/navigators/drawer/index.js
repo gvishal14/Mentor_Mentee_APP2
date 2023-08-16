@@ -16,6 +16,8 @@ import Social from '../../screens/drawerScreen/Social';
 import Support from '../../screens/drawerScreen/Support';
 import Terms from '../../screens/drawerScreen/Terms';
 import Account1 from '../../screens/drawerScreen/Account1';
+// import Logout from '../../screens/drawerScreen/Logout';
+import Notification from '../../screens/drawerScreen/Notification';
 
 
 const Drawer = createDrawerNavigator();
@@ -35,8 +37,11 @@ const DrawerStack = () => {
     <Drawer.Screen name='ReferEarn' component={ReferEarn}/>
     <Drawer.Screen name='Social' component={Social}/>
     <Drawer.Screen name='Rating' component={Rating}/>
+    <Drawer.Screen name='Notification Settings' component={Notification}/>
     <Drawer.Screen name='Terms' component={Terms}/>
     <Drawer.Screen name='Support' component={Support}/>
+    {/* <Drawer.Screen name='Logout' component={Logout}/> */}
+
 
 
 
