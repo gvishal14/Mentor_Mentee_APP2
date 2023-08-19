@@ -77,7 +77,7 @@ const Mentees = [
 ]
 
 
-const Chats = () => {
+const Chats = ({navigation}) => {
   return (
     <ScrollView>
       <View style={styles.container1}>
@@ -148,7 +148,7 @@ const Chats = () => {
                       </Text>
                     </View>
                     <View>
-                      <TouchableOpacity>
+                      <TouchableOpacity onPress={()=> navigation.navigate('ChatScreen')}>
                       <Image
                       source={item.image2}
                       style={{marginLeft:50, marginTop: 25, marginBottom: 10}}
