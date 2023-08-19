@@ -125,7 +125,9 @@ ON MOVING TO THE SESSION TAB
 
 ![Screenshot 2023-08-07 at 6 15 56 PM](https://github.com/gvishal14/Mentor_Mentee_APP2/assets/130955657/1d9ab6a1-b39a-41ba-970a-87004295a677)
 
+21)- CHAT SCREEN 
 
+![Screenshot 2023-08-19 at 3 19 37 PM](https://github.com/gvishal14/Mentor_Mentee_APP2/assets/130955657/bfdac302-03db-4f53-ae90-07336410b792)
 
 
 
