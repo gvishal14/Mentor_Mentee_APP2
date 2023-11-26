@@ -1,5 +1,6 @@
 LoginId- vishal@yopmail.com
 Password-vishal
+Or You Can Create your Own By using the domail yopmail.com
 
 Some Screenshots of the project
 1)-SPLASH SCREEN
